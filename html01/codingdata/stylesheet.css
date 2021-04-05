@@ -10,9 +10,20 @@ img {
     max-width: 100%;
 }
 
+li {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+}
+
 .information {
-    margin-left: 220px;
-    margin-right: 220px;
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    background: #FFE;
 }
 
 .logo {
@@ -22,18 +33,30 @@ img {
     margin-top: 30px;
 }
 
-.search_bar{
-    display: flex; /*アイコン、テキストボックスを調整する*/
-    align-items: center; /*アイコン、テキストボックスを縦方向の中心に*/
-    justify-content: center; /*アイコン、テキストボックスを横方向の中心に*/
-    height: 50px;
-    width: 100%;
-    background-color: #ddd;
+.search-access {
+    display: flex;
+    justify-content: right;
 }
 
-.search_icon{ /*アイコンに一定のスペースを設ける*/
-    height: 15px;
-    width: 15px;
-    padding: 5px 5px;
+.access {
+
 }
 
+.tel-time {
+    display: flex;
+    margin-top: 5px;
+}
+
+.tel {
+    display: flex;
+    margin-right: 5px;
+}
+
+.tel-title {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.tel-number {
+    display: inline-block;
+}
