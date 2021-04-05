@@ -1,0 +1,39 @@
+html {
+    font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.information {
+    margin-left: 220px;
+    margin-right: 220px;
+}
+
+.logo {
+    width: 320px;
+    height: 50px;
+
+    margin-top: 30px;
+}
+
+.search_bar{
+    display: flex; /*アイコン、テキストボックスを調整する*/
+    align-items: center; /*アイコン、テキストボックスを縦方向の中心に*/
+    justify-content: center; /*アイコン、テキストボックスを横方向の中心に*/
+    height: 50px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+.search_icon{ /*アイコンに一定のスペースを設ける*/
+    height: 15px;
+    width: 15px;
+    padding: 5px 5px;
+}
+
