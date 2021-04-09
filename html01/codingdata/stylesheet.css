@@ -2,7 +2,7 @@ html {
     font-size: 100%;
 }
 
-a {
+a, a:link, a:visited {
     text-decoration: none;
 }
 
@@ -54,17 +54,17 @@ body {
 }
 
 .tel-title {
-    display: inline-block;
+    display: inline;
     margin-right: 5px;
 }
 
 .tel-number {
-    display: inline-block;
+    display: inline;
 }
 
 .main-nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 1000px;
     margin: auto;
     height: 70px;
@@ -72,65 +72,225 @@ body {
     font-family: "Meiryo"、"メイリオ";
     font-weight: bold;
 }
+
 .main-nav li {
     border-left: solid 1px #d3d3d3;
-    text-align: center;
+    flex-grow: 1;
 }
-
-.main-nav img {
-    padding-top: 25px;
-}
-
-
 
 .item {
-    line-height: 70px;
+    line-height: 4.5rem;
+    text-align: center;
+    width: 110px;
+    border-top: solid 4px rgba(0,0,0,0);
 }
 
 .item a {
     color: black;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
     display: block;
-    padding-right: 20px;
-    padding-left: 20px;
+
 }
 
 .item-long {
-    line-height: 15px;
-    padding-top: 20px;
-    line-height: 70px;
+    line-height: 1.3rem;
+    text-align: center;
+    width: 110px;
+    border-top: solid 4px rgba(0,0,0,0);
 }
 
 .item-long a {
     color: black;
     display: block;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-top: 0.7rem;
+    padding-bottom: 1rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
 }
 
 .item-blue {
-    background-color: #1e90ff;
-    line-height: 70px;
+    background-color: #1960a7;
+    line-height: 4.5rem;
+    border-top: solid 4px rgba(0,0,0,0);
 }
 
 .item-blue a {
     color: white;
     display: block;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-left: 1rem;
+    
+}
+
+.item-blue img {
+    vertical-align: middle;
 }
 
 .item-orange {
-    background-color: #ff8c00;
-    line-height: 70px;
+    background-color: #e78103;
+    line-height: 4.5rem;
+    border-top: solid 4px rgba(0,0,0,0);
 }
 
 .item-orange a {
     color: white;
     display: block;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-left: 1rem;
 }
 
-.bg-grey {
+.item-orange img {
+    vertical-align: middle;
+}
+
+.main-current {
+    color: #1960a7;
+    background-color: lightgrey;
+    border-top: solid 4px #1960a7;
+}
+
+.main-current a {
+    color: #1960a7;
+}
+
+.bg-main {
     background-color: #f5f5f5;
+}
+
+.bg-travel {
+    background-color: #203744;
+}
+.travel-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    margin: auto;
+    height: 60px;
+    font-size: 14px;
+    font-family: "Meiryo"、"メイリオ";
+    font-weight: bold;
+    
+}
+
+.travel-nav li {
+    border-left: solid 1px #d3d3d3;
+    flex-grow: 1;
+}
+
+.travel-item {
+    width: 100%;
+    line-height: 3.8rem;
+}
+
+.travel-item a{
+
+    padding-left: 4rem;
+    display: block;
+    color: white;
+    font-size: 1rem;
+}
+
+.travel-item img {
+    vertical-align: middle;
+}
+
+.travel-item-long a {
+
+    padding-left: 2.5rem;
+}
+
+.travel-item-current {
+    color:white;
+    background-color: #1960a7;
+}
+
+.last {
+    border-right: solid 1px #d3d3d3;
+}
+
+
+
+.abroad-information {
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    padding-top: 2rem;
+}
+
+
+.abroad-feature {
+    width: 70%;
+    position: relative;
+}
+
+.abroad-feature p {
+    position: absolute;
+    top: 60%;
+    left: 0;
+}
+
+.abroad-news {
+    width: 30%;
+    margin-left: 1rem;
+    border-top: solid 4px #1960a7;
+    border-right: solid 1px #d3d3d3;
+    border-left: solid 1px #d3d3d3;
+    border-bottom: solid 1px #d3d3d3;
+    background-color: white;
+}
+
+.one-news{
+    margin: auto;
+    max-width: 85%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: solid 1px #d3d3d3;
+    font-size: 0.75rem;
+}
+
+.news-date {
+    font-weight: bold;
+    padding-bottom: 0.2rem;
+}
+
+.news-tag {
+    padding-bottom: 0.2rem;
+}
+
+.new-info {
+    display: inline-block;
+    color: white;
+    background-color: #c9171e;
+    padding: 0.1rem 0.6rem 0.1rem 0.6rem;
+}
+
+.update-info {
+    display: inline-block;
+    color: white;
+    background-color: #1960a7;
+    padding: 0.1rem 0.6rem 0.1rem 0.6rem;
+}
+
+.topic-type {
+    display: inline-block;
+    color: #1960a7;
+    border: solid 1px #1960a7;
+    padding: 0.05rem 0.8rem 0.05rem 0.8rem;
+}
+
+.news-topic {
+    padding-top: 0.3rem;    
+}
+
+.news-topic a{
+    color: black;
+}
+
+.abroad-news p {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    text-align: right;
+    font-size: 0.8rem;
 }
