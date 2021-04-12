@@ -24,42 +24,86 @@ body {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
-    background: #FFE;
 }
 
 .logo {
     width: 320px;
     height: 50px;
-
     margin-top: 30px;
 }
 
 .search-access {
     display: flex;
     justify-content: right;
+    margin-top: 30px;
+    margin-left: 10rem;
 }
+
 
 .access {
-
+    color: black;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    display: inline-block;
+    border: solid #E5E5E5 1px;
+    margin-left: 1rem;
+    border-radius: 5px;
 }
+
+.form-bar {
+    border: solid #E5E5E5 1px;
+    width: 320px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.form-bar::input {
+    padding-left: 1.5rem;
+}
+
+.form-bar::placeholder {
+    padding-left: 1.5rem;
+    color: #b9b8b8;
+}
+
+/* .search-bar {
+    position: relative;
+}
+
+.form-img img{
+    filter: invert(50%) sepia(0%) saturate(11%) hue-rotate(143deg) brightness(101%) contrast(93%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 19px;
+    height: 19px;
+    margin: 2px 2px;
+} */
 
 .tel-time {
     display: flex;
-    margin-top: 5px;
+    margin-top: 10px;
+    vertical-align: bottom;
 }
 
 .tel {
     display: flex;
     margin-right: 5px;
+    color: #1960a7;
 }
 
 .tel-title {
     display: inline;
     margin-right: 5px;
+    font-size: 0.9rem;
+    vertical-align: middle;
 }
 
 .tel-number {
     display: inline;
+    font-size: 1.6rem;
+    font-weight: bold;
 }
 
 .main-nav {
@@ -224,11 +268,29 @@ body {
     position: relative;
 }
 
+.abroad-feature img {
+    width: 100%;
+}
+
 .abroad-feature p {
     position: absolute;
-    top: 60%;
-    left: 0;
+    top: 0px;
+    left: 0px;
 }
+
+.abroad-feature::after{
+
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #1960a7;
+    opacity: 0.8;
+    display:block
+}
+
 
 .abroad-news {
     width: 30%;
