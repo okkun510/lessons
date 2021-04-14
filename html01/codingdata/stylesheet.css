@@ -209,6 +209,8 @@ body {
 .bg-travel {
     background-color: #203744;
 }
+
+
 .travel-nav {
     display: flex;
     justify-content: space-between;
@@ -261,6 +263,7 @@ body {
 
 .abroad-information {
     width: 1000px;
+    height: 650px;
     display: flex;
     justify-content: space-between;
     margin: auto;
@@ -270,36 +273,63 @@ body {
 
 .abroad-feature {
     width: 70%;
+}
+
+.abroad-feature > div {
+    width: 100%;
     position: relative;
 }
 
-.abroad-feature img {
+.feature-img {
     width: 100%;
 }
 
-.abroad-feature p {
+.feature-sentence {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    bottom: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    background: rgba(25,96,167,0.8);
+    display: block;
+    height: 170px;
 }
 
-.abroad-feature::after{
-
+/* .feature-sentence::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    width: auto;
+    height: auto;
     background-color: #1960a7;
-    opacity: 0.8;
+    opacity: 0.9;
     display:block
+} */
+
+.feature-button {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    display: inline-block;
+    border: solid 1px white;
+    border-radius: 5px;
+    background-color: white;
+    color: #1960a7;
+    font-weight: bold;
+    padding: 0.5rem 4.5rem 0.5rem 4.5rem;
+    
+
 }
+
 
 
 .abroad-news {
     width: 30%;
-    margin-left: 1rem;
+    height: 95%;
+    margin-left: 1.5rem;
+    padding-bottom: 2rem;
     border-top: solid 4px #1960a7;
     border-right: solid 1px #d3d3d3;
     border-left: solid 1px #d3d3d3;
