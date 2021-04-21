@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>02</title>
+</head>
+<body>
+
+
+
+<h1>02</h1>
+
+<button class="modal-open">モーダルを開く</button>
+
+<div class="modal-layer" id="modal">
+    <div class="modal-inner">
+        <h3>モーダル のタイトル</h3>
+        <p>モーダル 内のテキスト。モーダル 内のテキスト。モーダル 内のテキスト。</p>
+        <button class="modal-close">×</button>
+    </div>
+</div>
+
+
+<style>
+.modal-layer {
+    opacity: 0;
+    background-color: rgba(0,0,0,0.6);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity 1s, top 1s;
+}
+
+.modal-show {
+    top: 0;
+    opacity: 1;
+}
+
+.modal-inner {
+    background-color: white;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+
+.modal-inner h3{
+    padding: 10px;
+}
+
+.modal-inner p{
+    padding: 10px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+}
+
+
+</style>
+<script>
+    $('.modal-open').on('click', function () {
+        //$('.modal-layer').fadeIn();
+        $('.modal-layer').addClass('modal-show');
+    });
+
+    $('.modal-close').on('click', function() {
+        //$('.modal-layer').fadeOut();
+        $('.modal-layer').removeClass('modal-show');
+    })
+
+</script>
+
+</body>
+</html>

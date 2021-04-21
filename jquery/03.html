@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>03</title>
+</head>
+<body>
+
+
+
+<h1>03</h1>
+
+<nav class="tab-nav">
+    <a href="#pane1" class="tab-nav-active">タブ1</a>
+    <a href="#pane2">タブ2</a>
+    <a href="#pane3">タブ3</a>
+    <a href="#pane4">タブ4</a>
+</nav>
+
+<div class="tab-panes">
+    <div id="pane1" class="tab-pane tab-pane-active">
+        <p>タブ1の内容です。<br>タブ1の内容です。<br>タブ1の内容です。<br>タブ1の内容です。</p>
+    </div>
+    <div id="pane2" class="tab-pane">
+        <p>タブ2の内容です。<br>タブ2の内容です。<br>タブ2の内容です。<br>タブ2の内容です。</p>
+    </div>
+    <div id="pane3" class="tab-pane">
+        <p>タブ3の内容です。<br>タブ3の内容です。<br>タブ3の内容です。<br>タブ3の内容です。</p>
+    </div>
+    <div id="pane4" class="tab-pane">
+        <p>タブ4の内容です。<br>タブ4の内容です。<br>タブ4の内容です。<br>タブ4の内容です。</p>
+    </div>
+</div>
+
+<style>
+.tab-nav {
+    list-style-type: none;
+    display: flex;
+}
+
+.tab-nav a {
+    display: block;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px 10px 0 0;
+}
+
+.tab-nav-active {
+    background: #000;
+    color: #FFF;
+}
+
+.tab-panes {
+
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane-active {
+    display: block;
+}
+</style>
+<script>
+$(function() {
+    const tabs = $('.tab-nav li');
+
+    $('.tab-nav a').on('click', function() {
+        $(this).addClass('tab-nav-active');
+        $(this).siblings('a').removeClass('tab-nav-active');
+        /*
+        var target = $(this).attr('href');        
+        
+        $(target).addClass('tab-pane-active');
+        $(target).siblings('.tab-pane').removeClass('tab-pane-active');
+        */
+        var index = $('.tab-nav a').index(this);
+        $('.tab-pane').eq(index).addClass('tab-pane-active');
+        $('.tab-pane').eq(index).siblings('.tab-pane').removeClass('tab-pane-active');
+    })
+})
+
+</script>
+</body>
+</html>

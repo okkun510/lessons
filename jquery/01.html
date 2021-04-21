@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>01</title>
+</head>
+<body>
+
+<h1>01</h1>
+
+<nav>
+    <ul class="menu">
+        <li>
+            <a href="#">MENU1</a>
+            <ul class="submenu">
+                <li><a href="#">SUBMENU1-1</a></li>
+                <li><a href="#">SUBMENU1-2</a></li>
+                <li><a href="#">SUBMENU1-3</a></li>
+                <li><a href="#">SUBMENU1-4</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">MENU2</a>
+            <ul class="submenu">
+                <li><a href="#">SUBMENU2-1</a></li>
+                <li><a href="#">SUBMENU2-2</a></li>
+                <li><a href="#">SUBMENU2-3</a></li>
+                <li><a href="#">SUBMENU2-4</a></li>
+            </ul>
+        </li>
+        <li><a href="">MENU3</a></li>
+        <li><a href="">MENU4</a></li>
+    </ul>
+</nav>
+
+<style>
+.menu {display: flex; list-style-type: none;}
+.menu li {position: relative; border: 1px solid #000;}
+.menu a {display: block; padding: 10px 20px;}
+.submenu {display: none; position: absolute; top: 100%; left: 0; width: 200px; padding-left: 0; list-style-type: none; background: #EEE;}
+
+</style>
+
+<script>
+$('.menu a').on('click', function() {
+    $(this).next().slideToggle();
+    $('.menu a').not($(this)).next().slideUp();
+});
+
+/*
+$('.menu a').click(function () {
+    $(this).next().slideToggle();
+    $('.menu a').not($(this)).next().slideUp();
+});
+*/
+
+/*
+$(document).on('click', '.menu a', function() {
+    $(this).next().slideToggle();
+    $('.menu a').not($(this)).next().slideUp();
+});
+*/
+</script>
+
+</body>
+</html>

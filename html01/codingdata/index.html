@@ -64,7 +64,7 @@
                 <div class="abroad-feature">
                     <div>
                         <img class="feature-img" src="images/xURdYLr1dqi8lFyLcOnl.jpg">
-                        <div class="bg-blue">
+                        <div class="bg-feature">
                             <p class="feature-sentence">【新感覚オンラインツアー】コーカサスの国ジョージアへ「トビリシありのまま」【新感覚オンラインツアー】コーカサスの国ジョージアへ「トビリシありのまま」</p>
                             <a href="#" class="feature-button">詳細はこちら</a>
                         </div>
@@ -131,19 +131,25 @@
                     <h3><img src="images/icon_search01.png"> 条件からツアーを探す</h3>
                     <div class="form-condition">
                         <form action="" method="get">
-                            <select name="direction" class="form-long">
-                                <option value="" >方面</option>
-                                <option value="">A</option>
-                            </select>
-                            <br>
-                            <select name="country" class="form-long">
-                                <option value="" >国・地域</option>
-                            </select>
-                            <br>
-                            <select name="purpose" class="form-long">
-                                <option value="" >旅の目的</option>
-                            </select>
-                            <br>
+                            <div class="select-container">
+                                <select name="direction" class="form-long">
+                                    <option value="" >方面</option>
+                                    <option value="">A</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="select-container">
+                                <select name="country" class="form-long">
+                                    <option value="" >国・地域</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="select-container">
+                                <select name="purpose" class="form-long">
+                                    <option value="" >旅の目的</option>
+                                </select>
+                                <br>
+                            </div>
                             <ul>
                                 <li class="disc"><span>出発日〜帰国日</span></li>
                                 <li><input type="text" name="from"
@@ -151,14 +157,18 @@
                                 <li class="disc"><span>出発月</span> <input type="text" name="month" class="form-short"> 月</li>
                                 <li class="disc"><span>日数</span>  <input type="text" name="from-days" class="form-short"> 日間 〜 <input type="text" name="to-days" class="form-short"> 日間</li>
                                 <li><input type="text" name="keyword" class="form-long" placeholder="キーワードを入力"></li>
-                                <li><input type="radio" name="conductor" value="yes"> 添乗員付き
-                                    <input type="radio" name="conductor" value="no"> なし</li>
+                                <div class="radio">
+                                    <li><input type="radio" name="conductor" value="yes" class="conductor" checked><span> 添乗員付き</span>
+                                        <input type="radio" name="conductor" value="no"> なし
+                                    </li>
+                                </div>
                                 <li><input type="checkbox" name="settle-departure" value="1"> 出発決定済みのツアーに絞る</li>
                             </ul>
                         </form>
                     </div>
                     <div class="search-result">
                         <p>該当ツアー件数</p>
+                        <h1>０件</h1>
                     </div>
                     <div class="search-comment">
                         <p>該当するツアーが見つかりませんでした。</p>
@@ -186,39 +196,41 @@
             <section class="search-right">
                 <div class="search-map">
                     <h3><img src="images/icon_book.png" alt=""> 地図からツアーを探す</h3>
-                    <img src="images/img_map.jpg">
-                    <p class="map-poles">北極・南極</p>
-                    <p class="map-europe">ヨーロッパ</p>
-                    <p class="map-china">中国</p>
-                    <p class="map-north-america">北米</p>
-                    <p class="map-asia-india">アジア・インド</p>
-                    <p class="map-middle-east-central-asia">中近東・中央アジア</p>
-                    <p class="map-africa">アフリカ</p>
-                    <p class="map-latin-america-caribbean">中南米・カリブ</p>
-                    <p class="map-oceania-pacific">オセアニア・太平洋</p>
+                    <div class="world-map">
+                        <img src="images/img_map.jpg">
+                        <a href="#" class="map-poles">北極・南極</a>
+                        <a href="#" class="map-europe">ヨーロッパ</a>
+                        <a href="#" class="map-china">中国</a>
+                        <a href="#" class="map-north-america">北米</a>
+                        <a href="#" class="map-asia-india">アジア・インド</a>
+                        <a href="#" class="map-middle-east-central-asia">中近東・中央アジア</a>
+                        <a href="#" class="map-africa">アフリカ</a>
+                        <a href="#" class="map-latin-america-caribbean">中南米・カリブ</a>
+                        <a href="#" class="map-oceania-pacific">オセアニア・太平洋</a>
+                    </div>
                 </div>
                 <div class="search-purpose">
                     <h3><img src="images/icon_view.png"> 目的から探す</h3>
                     <div class="purpose-keyword">
-                        <p>ビジネスクラス</p>
-                        <p>おひとり参加限定・応援</p>
-                        <p>専門家同行の旅</p>
-                        <p>音楽鑑賞</p>
-                        <p>クルーズ</p>
-                        <p>オーロラ</p>
-                        <p>ハイキング</p>
-                        <p>オンラインツアー・講座</p>
-                        <p>オンラインツアー・講座(オンデマンド)</p>
+                        <a href="#">ビジネスクラス</a>
+                        <a href="#">おひとり参加限定・応援</a>
+                        <a href="#">専門家同行の旅</a>
+                        <a href="#">音楽鑑賞</a>
+                        <a href="#">クルーズ</a>
+                        <a href="#">オーロラ</a>
+                        <a href="#">ハイキング</a>
+                        <a href="#">オンラインツアー・講座</a>
+                        <a href="#">オンラインツアー・講座(オンデマンド)</a>
                     </div>
                 </div>
                 <div class="search-departure">
                     <h4><img src="images/icon_calendar.png"> 出発月からツアーを探す</h4>
                     <div class="departure-month">
-                        <p>３月発(国内)</p>
-                        <p>４月発(国内)</p>
-                        <p>５月発(国内)</p>
-                        <p>６月発(国内)</p>
-                        <p>７月発(国内)</p>
+                        <a href="#">３月発(国内)</あ>
+                        <a href="#">４月発(国内)</a>
+                        <a href="#">５月発(国内)</a>
+                        <a href="#">６月発(国内)</a>
+                        <a href="#">７月発(国内)</a>
                     </div>
                 </div>
                 <div class="search-keyword">
