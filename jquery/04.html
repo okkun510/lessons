@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>04</title>
+</head>
+<body>
+
+
+
+<h1>04</h1>
+
+<form action="" method="post">
+
+<select name="occupation" required>
+    <option value="">--選択--</option>
+    <option value="1">プログラマ</option>
+    <option value="2">エンジニア</option>
+    <option value="9" selected>その他</option>
+</select>
+
+<input type="text" name="others" class="others">
+
+<button type="submit">GO</button>
+
+</form>
+
+</script>
+</body>
+</html>
+
+<style>
+.others {
+    display: none;
+}
+</style>
+
+<script>
+    var others = 9;
+
+    function toggle_others() {
+        var selected = $('select[name="occupation"]').val();
+        if (selected == others) {
+            $('input[name="others"]').removeClass('others');
+            $('input[name="others"]').prop('required', true);
+
+        } else {
+            $('input[name="others"]').addClass('others');
+            $('input[name="others"]').prop('required', false);
+        }
+    }
+
+    $(function () {
+        toggle_others();
+    });
+
+    $('select[name="occupation"]').on('change', function() {
+        toggle_others();
+    });
+
+</script>
