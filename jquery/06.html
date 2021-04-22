@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>06</title>
+</head>
+<body>
+
+
+
+<h1>06</h1>
+
+<input type="text" name="text" class="text"> <span class="count">0</span> / 30文字
+
+<style>
+    .text {
+        height: 40px;
+        width: 300px;
+    }
+</style>
+
+<script>
+    $(function() {
+        $('.text').on('input', function() {
+            var count = $(this).val().length;
+
+            $('.count').html(count);
+
+        });
+    })
+
+</script>
+
+
