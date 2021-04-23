@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>07</title>
+</head>
+<body>
+
+
+
+<h1>07</h1>
+
+<ul id="text">
+    <li><span>&nbsp;&nbsp;1</span> <input type="text" name="text1"></li>
+    <li><span>&nbsp;&nbsp;2</span> <input type="text" name="text2"></li>
+    <li class="__template"><span></span> <input type="text" name="text2"></li>
+</ul>
+
+<button>行を追加</button>
+
+<style>
+    li {list-style-type: none; margin-bottom: 10px;}
+    .margin {padding-left: 1px;}
+    .__template {display: none;}
+</style> 
+
+<script>
+    $(function() {
+        var li_number = $('#text li').length - 1;
+        var num = li_number;
+
+        $('button').on('click', function() {
+            num += 1;
+            /*
+            if (num <= 9) {
+                $('#text').append(`<li><span>&nbsp;&nbsp;${num}</span> <input type="text" name="text${num}"></li>`);
+            } else if (num >= 10) {
+                $('#text').append(`<li><span>${num}</span> <input type="text" name="text${num}"></li>`);
+            }
+            */
+           var item = $('.__template').clone();
+           item.removeClass('__template');
+           item.find('span').html(num);
+           $('#text').append(item);
+        });
+    })
+
+
+</script>
