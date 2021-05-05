@@ -56,7 +56,7 @@ body {
     z-index: 2;
     top: 9px;
     left: 260px;
-    
+
 }
 
 .form-img img{
@@ -169,7 +169,7 @@ body {
     color: white;
     display: block;
     padding-left: 1rem;
-    
+
 }
 
 .item-blue img {
@@ -220,7 +220,7 @@ body {
     font-size: 14px;
     font-family: "Meiryo"、"メイリオ";
     font-weight: bold;
-    
+
 }
 
 .travel-nav li {
@@ -369,7 +369,7 @@ body {
 }
 
 .news-topic {
-    padding-top: 0.3rem;    
+    padding-top: 0.3rem;
 }
 
 .news-topic a{
@@ -386,13 +386,13 @@ body {
 
 .attention-news {
     width: 1000px;
-    margin: auto; 
+    margin: auto;
     margin-top: 3rem;
     background-color: #fff4f9;
 }
 
 .attention-news ul {
-    
+
     border: solid 1px #c9171e;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -402,7 +402,7 @@ body {
 .attention-news li {
     color: #c9171e;
     list-style-type: disc;
-    list-style-position: inside; 
+    list-style-position: inside;
     font-size: 0.8rem;
 }
 
@@ -609,7 +609,7 @@ body {
 .introduce-events {
     border: solid 1px #d3d3d3;
     margin-top: 30px;
-    
+
 }
 
 .introduce-events h4 {
@@ -709,7 +709,7 @@ body {
     position: absolute;
     z-index: 2;
     top: 30px;
-    right: 200px; 
+    right: 200px;
     z-index: 2;
 
 }
@@ -760,7 +760,7 @@ body {
     z-index: 2;
     bottom: 50px;
     left: 230px;
-}  
+}
 
 .search-purpose {
     background-color: #e5f2ff;
@@ -809,7 +809,7 @@ body {
 .departure-month {
     display: flex;
     margin-bottom: 20px;
-    
+
 }
 
 .departure-month a {
@@ -936,9 +936,209 @@ body {
     text-align: center;
     padding-top: 3rem;
     margin: auto;
+    margin-bottom: 30px;
+    color: #1960a7;
 }
 
 .inquiry-wrapper {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    padding-bottom: 100px;
+    width: 1000px;
+}
+
+.tel-inquiry {
+    display: block;
+    background-color: white;
+    width: 490px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.web-inquiry {
+    display: block;
+    background-color: white;
+    width: 490px;
+    margin-bottom: 20px;
+}
+.magazine-inquiry {
+    display: block;
+    background-color: white;
+    width: 490px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.pamphlet-inquiry {
+    display: block;
+    background-color: white;
+    width: 490px;
+    margin-bottom: 20px;
+}
+
+.inquiry-title {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.tel-num {
+    text-align: center;
+    color: #1960a7;
+    font-size: 3rem;
+    transform: scale( 1 , 2.1 );
+}
+
+.tel-img {
+    width: 35px;
+    height: 45px;
+    margin-right: 5px;
+}
+
+.tel-info {
+    text-align: center;
+}
+
+.tel-info p {
+    color: #1960a7;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.web-info a{
+    margin: 20px 50px 10px 50px;
+    padding: 20px 60px 20px 80px;
+    display: block;
+    background-color: #1960a7;
+    color: white;
+    width: 400px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px #c0c0c0;
+
+}
+
+.web-info img {
+    vertical-align: middle;
+}
+
+.mail-magazine {
+    display: flex;
+    margin-bottom: 30px;
+
+}
+
+.mail-magazine a{
+    margin: 20px 50px 10px 50px;
+    padding: 20px 60px 20px 140px;
+    display: block;
+    width: 400px;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px #c0c0c0;
+    border: solid 1px #d3d3d3;
+    position: relative;
+
+}
+
+.mail-magazine img {
+    position: absolute;
+    top: 30px;
+    left: 90px;
+}
+
+.pamphlet {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.pamphlet a{
+    margin: 20px 50px 10px 50px;
+    padding: 20px 60px 20px 140px;
+    display: block;
+    width: 400px;
+    color: white;
+    background-color: #e78103;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px #c0c0c0;
+    border: solid 1px #d3d3d3;
+    position: relative;
+}
+
+.pamphlet img {
+    position: absolute;
+    top: 30px;
+    left: 90px;
+}
+
+.banners {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.banners span{
+    font-size: 2rem;
+    color: #1960a7;
+    margin-top: 17px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.banner {
+    margin-left: 10px;
+}
+
+.page-upper {
+    border-bottom: solid 3px #1960a7;
+    margin-bottom: 50px;
+}
+
+.page-upper div {
+    width: 1000px;
+    margin: auto;
+    text-align: right;
+}
+
+.go-upper {
+    display: inline-block;
+    background-color: #1960a7;
+    color: white;
+    padding: 10px 30px;
+}
+
+.page-links {
+    display: flex;
+    width: 1000px;
+    margin: auto;
+}
+
+.one-line {
+    padding-right: 30px;
+    margin: auto;
+    width: 300px;
+}
+
+.abroad-domestic-tour {
+    margin-left: 20px;
+    color: #1960a7;
+}
+.abroad-free {
+    margin-left: 100px;
+    color: #1960a7;
+}
+
+
+.link-header {
+    border-bottom: solid 1px #d3d3d3;
+    display: inline-block;
+    width: 300px;
+
 }
