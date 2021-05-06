@@ -1027,7 +1027,7 @@ body {
 .mail-magazine {
     display: flex;
     margin-bottom: 30px;
-
+    position: relative;
 }
 
 .mail-magazine a{
@@ -1041,24 +1041,23 @@ body {
     border-radius: 5px;
     box-shadow: 0px 2px 2px #c0c0c0;
     border: solid 1px #d3d3d3;
-    position: relative;
-
 }
 
 .mail-magazine img {
     position: absolute;
-    top: 30px;
-    left: 90px;
+    top: 50px;
+    left: 140px;
 }
 
 .pamphlet {
     display: flex;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .pamphlet a{
     margin: 20px 50px 10px 50px;
-    padding: 20px 60px 20px 140px;
+    padding: 10px 20px 10px 150px;
     display: block;
     width: 400px;
     color: white;
@@ -1068,13 +1067,13 @@ body {
     border-radius: 5px;
     box-shadow: 0px 2px 2px #c0c0c0;
     border: solid 1px #d3d3d3;
-    position: relative;
+    
 }
 
 .pamphlet img {
     position: absolute;
-    top: 30px;
-    left: 90px;
+    top: 45px;
+    left: 140px;
 }
 
 .banners {
@@ -1118,27 +1117,125 @@ body {
     display: flex;
     width: 1000px;
     margin: auto;
+    margin-bottom: 100px;
 }
 
-.one-line {
-    padding-right: 30px;
-    margin: auto;
-    width: 300px;
+.page-links a {
+    color: black;
 }
-
-.abroad-domestic-tour {
-    margin-left: 20px;
-    color: #1960a7;
-}
-.abroad-free {
-    margin-left: 100px;
-    color: #1960a7;
-}
-
 
 .link-header {
     border-bottom: solid 1px #d3d3d3;
     display: inline-block;
     width: 300px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
 
+.one-line {
+    margin-right: 50px;
+    width: 300px;
+}
+
+.one-link {
+    margin-top: 30px;
+}
+
+.one-link img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.abroad-domestic-tour {
+    margin-left: 50px;
+    color: #1960a7;
+}
+.abroad-free {
+    margin-left: 130px;
+    color: #1960a7;
+}
+.tour-features {
+    margin-left: 210px;
+    color: #1960a7;
+}
+.event-customer {
+    margin-left: 130px;
+    color: #1960a7;
+}
+.blog-sns {
+    margin-left: 150px;
+    color: #1960a7;
+}
+
+.link-lists {
+    margin-top: 30px;
+}
+
+.link-lists li{
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.associations {
+    width: 1000px;
+    margin: auto;
+}
+
+.associations img{
+    width: 50px;
+    height: 50px;
+}
+
+footer {
+    margin-top: 20px;
+    
+}
+
+.footer-menu {
+    background-color: #e8ecef;
+}
+
+.footer-menu div {
+    width: 1000px;
+    margin: auto;
+}
+
+.footer-menu ul {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+}
+
+.footer-menu li {
+    color: #696969;
+    margin-right: 5px;
+}
+
+.footer-menu a {
+    color: #696969;
+}
+
+.copy-right {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0.7rem;
+}
+
+.btn-side ul {
+    text-align: right;
+}
+.btn-side li img{
+    vertical-align: top;
+}
+
+#content {
+    position: relative;
+}
+
+#sticky-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }

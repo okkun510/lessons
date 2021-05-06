@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <script src="jquery-3.6.0.min.js"></script>
     <title>三進トラベルサービス</title>
 </head>
 <body>
@@ -119,140 +120,140 @@
                 </article>
             </div>
         </div>
-        <div class="attention-news">
-            <ul>
-                <li>【新型コロナウイルス対応】時間短縮営業、社員コメントウェブ版公開のお知らせ</li>
-            </ul>
-        </div>
+        <div id="content">
+            <div class="attention-news">
+                <ul>
+                    <li>【新型コロナウイルス対応】時間短縮営業、社員コメントウェブ版公開のお知らせ</li>
+                </ul>
+            </div>
 
-        <div class="search-wrapper">
-            <section class="search-left">
-                <div class="search-condition">
-                    <h3><img src="images/icon_search01.png"> 条件からツアーを探す</h3>
-                    <div class="form-condition">
-                        <form action="" method="get">
-                            <div class="select-container">
-                                <select name="direction" class="form-long">
-                                    <option value="" >方面</option>
-                                    <option value="">A</option>
-                                </select>
-                                <br>
-                            </div>
-                            <div class="select-container">
-                                <select name="country" class="form-long">
-                                    <option value="" >国・地域</option>
-                                </select>
-                                <br>
-                            </div>
-                            <div class="select-container">
-                                <select name="purpose" class="form-long">
-                                    <option value="" >旅の目的</option>
-                                </select>
-                                <br>
-                            </div>
-                            <ul>
-                                <li class="disc"><span>出発日〜帰国日</span></li>
-                                <li><input type="text" name="from"
-                                    class="form-middle"> 〜 <input type="text" name="to" class="form-middle"></li>
-                                <li class="disc"><span>出発月</span> <input type="text" name="month" class="form-short"> 月</li>
-                                <li class="disc"><span>日数</span>  <input type="text" name="from-days" class="form-short"> 日間 〜 <input type="text" name="to-days" class="form-short"> 日間</li>
-                                <li><input type="text" name="keyword" class="form-long" placeholder="キーワードを入力"></li>
-                                <div class="radio">
-                                    <li><input type="radio" name="conductor" value="yes" class="conductor" checked><span> 添乗員付き</span>
-                                        <input type="radio" name="conductor" value="no"> なし
-                                    </li>
+            <div class="search-wrapper">
+                <section class="search-left">
+                    <div class="search-condition">
+                        <h3><img src="images/icon_search01.png"> 条件からツアーを探す</h3>
+                        <div class="form-condition">
+                            <form action="" method="get">
+                                <div class="select-container">
+                                    <select name="direction" class="form-long">
+                                        <option value="" >方面</option>
+                                        <option value="">A</option>
+                                    </select>
+                                    <br>
                                 </div>
-                                <li><input type="checkbox" name="settle-departure" value="1"> 出発決定済みのツアーに絞る</li>
-                            </ul>
-                        </form>
+                                <div class="select-container">
+                                    <select name="country" class="form-long">
+                                        <option value="" >国・地域</option>
+                                    </select>
+                                    <br>
+                                </div>
+                                <div class="select-container">
+                                    <select name="purpose" class="form-long">
+                                        <option value="" >旅の目的</option>
+                                    </select>
+                                    <br>
+                                </div>
+                                <ul>
+                                    <li class="disc"><span>出発日〜帰国日</span></li>
+                                    <li><input type="text" name="from"
+                                        class="form-middle"> 〜 <input type="text" name="to" class="form-middle"></li>
+                                    <li class="disc"><span>出発月</span> <input type="text" name="month" class="form-short"> 月</li>
+                                    <li class="disc"><span>日数</span>  <input type="text" name="from-days" class="form-short"> 日間 〜 <input type="text" name="to-days" class="form-short"> 日間</li>
+                                    <li><input type="text" name="keyword" class="form-long" placeholder="キーワードを入力"></li>
+                                    <div class="radio">
+                                        <li><input type="radio" name="conductor" value="yes" class="conductor" checked><span> 添乗員付き</span>
+                                            <input type="radio" name="conductor" value="no"> なし
+                                        </li>
+                                    </div>
+                                    <li><input type="checkbox" name="settle-departure" value="1"> 出発決定済みのツアーに絞る</li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="search-result">
+                            <p>該当ツアー件数</p>
+                            <h1>０件</h1>
+                        </div>
+                        <div class="search-comment">
+                            <p>該当するツアーが見つかりませんでした。</p>
+                            <p>条件を変えて検索してください。</p>
+                        </div>
                     </div>
-                    <div class="search-result">
-                        <p>該当ツアー件数</p>
-                        <h1>０件</h1>
+                    <div class="introduce-events">
+                        <h4>世界の魅力を紹介するイベント</h4>
+                        <ul class="one-event">
+                            <li><span class="event-date">2021-04-02</span> <span class="charge-event">有料</span> <span class="can-participate">参加受付中</span></li>
+                            <li><a href="#" class="event-title">【第3回】進化する美食</a></li>
+                        </ul>
+                        <ul class="one-event">
+                            <li><span class="event-date">2021-04-03</span> <span class="charge-event">有料</span> <span class="can-participate">参加受付中</span></li>
+                            <li><a href="#" class="event-title">【第6回】オオクニヌシノカミの国譲りと天孫降臨</a></li>
+                        </ul>
+                        <ul class="one-event">
+                            <li><span class="event-date">2021-04-07</span> <span class="charge-event">有料</span> <span class="can-participate">参加受付中</span></li>
+                            <li><a href="#" class="event-title">【第3回】旨い！ジョージア料理の秘密を知る</a></li>
+                        </ul>
+                        <p>一覧をみる</p>
                     </div>
-                    <div class="search-comment">
-                        <p>該当するツアーが見つかりませんでした。</p>
-                        <p>条件を変えて検索してください。</p>
-                    </div>
-                </div>
-                <div class="introduce-events">
-                    <h4>世界の魅力を紹介するイベント</h4>
-                    <ul class="one-event">
-                        <li><span class="event-date">2021-04-02</span> <span class="charge-event">有料</span> <span class="can-participate">参加受付中</span></li>
-                        <li><a href="#" class="event-title">【第3回】進化する美食</a></li>
-                    </ul>
-                    <ul class="one-event">
-                        <li><span class="event-date">2021-04-03</span> <span class="charge-event">有料</span> <span class="can-participate">参加受付中</span></li>
-                        <li><a href="#" class="event-title">【第6回】オオクニヌシノカミの国譲りと天孫降臨</a></li>
-                    </ul>
-                    <ul class="one-event">
-                        <li><span class="event-date">2021-04-07</span> <span class="charge-event">有料</span> <span class="can-participate">参加受付中</span></li>
-                        <li><a href="#" class="event-title">【第3回】旨い！ジョージア料理の秘密を知る</a></li>
-                    </ul>
-                    <p>一覧をみる</p>
-                </div>
-            </section>
+                </section>
 
-            <section class="search-right">
-                <div class="search-map">
-                    <h3><img src="images/icon_book.png" alt=""> 地図からツアーを探す</h3>
-                    <div class="world-map">
-                        <img src="images/img_map.jpg">
-                        <a href="#" class="map-poles">北極・南極</a>
-                        <a href="#" class="map-europe">ヨーロッパ</a>
-                        <a href="#" class="map-china">中国</a>
-                        <a href="#" class="map-north-america">北米</a>
-                        <a href="#" class="map-asia-india">アジア・インド</a>
-                        <a href="#" class="map-middle-east-central-asia">中近東・中央アジア</a>
-                        <a href="#" class="map-africa">アフリカ</a>
-                        <a href="#" class="map-latin-america-caribbean">中南米・カリブ</a>
-                        <a href="#" class="map-oceania-pacific">オセアニア・太平洋</a>
+                <section class="search-right">
+                    <div class="search-map">
+                        <h3><img src="images/icon_book.png" alt=""> 地図からツアーを探す</h3>
+                        <div class="world-map">
+                            <img src="images/img_map.jpg">
+                            <a href="#" class="map-poles">北極・南極</a>
+                            <a href="#" class="map-europe">ヨーロッパ</a>
+                            <a href="#" class="map-china">中国</a>
+                            <a href="#" class="map-north-america">北米</a>
+                            <a href="#" class="map-asia-india">アジア・インド</a>
+                            <a href="#" class="map-middle-east-central-asia">中近東・中央アジア</a>
+                            <a href="#" class="map-africa">アフリカ</a>
+                            <a href="#" class="map-latin-america-caribbean">中南米・カリブ</a>
+                            <a href="#" class="map-oceania-pacific">オセアニア・太平洋</a>
+                        </div>
                     </div>
-                </div>
-                <div class="search-purpose">
-                    <h3><img src="images/icon_view.png"> 目的から探す</h3>
-                    <div class="purpose-keyword">
-                        <a href="#">ビジネスクラス</a>
-                        <a href="#">おひとり参加限定・応援</a>
-                        <a href="#">専門家同行の旅</a>
-                        <a href="#">音楽鑑賞</a>
-                        <a href="#">クルーズ</a>
-                        <a href="#">オーロラ</a>
-                        <a href="#">ハイキング</a>
-                        <a href="#">オンラインツアー・講座</a>
-                        <a href="#">オンラインツアー・講座(オンデマンド)</a>
+                    <div class="search-purpose">
+                        <h3><img src="images/icon_view.png"> 目的から探す</h3>
+                        <div class="purpose-keyword">
+                            <a href="#">ビジネスクラス</a>
+                            <a href="#">おひとり参加限定・応援</a>
+                            <a href="#">専門家同行の旅</a>
+                            <a href="#">音楽鑑賞</a>
+                            <a href="#">クルーズ</a>
+                            <a href="#">オーロラ</a>
+                            <a href="#">ハイキング</a>
+                            <a href="#">オンラインツアー・講座</a>
+                            <a href="#">オンラインツアー・講座(オンデマンド)</a>
+                        </div>
                     </div>
-                </div>
-                <div class="search-departure">
-                    <h4><img src="images/icon_calendar.png"> 出発月からツアーを探す</h4>
-                    <div class="departure-month">
-                        <a href="#">３月発(国内)</あ>
-                        <a href="#">４月発(国内)</a>
-                        <a href="#">５月発(国内)</a>
-                        <a href="#">６月発(国内)</a>
-                        <a href="#">７月発(国内)</a>
+                    <div class="search-departure">
+                        <h4><img src="images/icon_calendar.png"> 出発月からツアーを探す</h4>
+                        <div class="departure-month">
+                            <a href="#">３月発(国内)</あ>
+                            <a href="#">４月発(国内)</a>
+                            <a href="#">５月発(国内)</a>
+                            <a href="#">６月発(国内)</a>
+                            <a href="#">７月発(国内)</a>
+                        </div>
                     </div>
-                </div>
-                <div class="search-keyword">
-                    <h3><span>＃</span>注目・話題のキーワードでツアーを探す</h3>
-                    <div class="keywords">
-                        <a href="#">世界の絶景</a>
-                        <a href="#">美術鑑賞</a>
-                        <a href="#">未だ見ぬ国へ</a>
-                        <a href="#">大阪発着</a>
-                        <a href="#">乗継地・到着地合流</a>
-                        <a href="#">一都市滞在</a>
-                        <a href="#">せっかくなら長い旅へ</a>
-                        <a href="#">鉄道</a>
-                        <a href="#">島々への旅</a>
-                        <a href="#">ビクトリアの滝</a>
+                    <div class="search-keyword">
+                        <h3><span>＃</span>注目・話題のキーワードでツアーを探す</h3>
+                        <div class="keywords">
+                            <a href="#">世界の絶景</a>
+                            <a href="#">美術鑑賞</a>
+                            <a href="#">未だ見ぬ国へ</a>
+                            <a href="#">大阪発着</a>
+                            <a href="#">乗継地・到着地合流</a>
+                            <a href="#">一都市滞在</a>
+                            <a href="#">せっかくなら長い旅へ</a>
+                            <a href="#">鉄道</a>
+                            <a href="#">島々への旅</a>
+                            <a href="#">ビクトリアの滝</a>
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
-        <section class="sns">
-
+            <section class="sns">
                 <a class="sns-link" href="#">SNS更新一覧 <span>></span></a>
                 <div class="sns-imgs">
                     <a href="#"><img class="sns-img" src="images/icon_facebook.png" alt=""></a>
@@ -260,181 +261,192 @@
                     <a href="#"><img class="sns-img" src="images/icon_youtobe.png" alt=""></a>
                     <a href="#"><img class="sns-img" src="images/icon_twitter.png" alt=""></a>
                 </div>
+            </section>
 
-        </section>
-
-        <div class="recommend-tour">
-            <div class="bg-travel">
-                <h3 class="recommend-title">おすすめ特集</h3>
-                <div class="slide-show">
-                    <div class="slide">
-                        <p class="forward-back"><</p>
-                        <img class="slide-img" src="images/J3Dc3vWZhG4jJo3BkG5m.jpg" alt="">
-                        <p class="slide-message"></p>
-                        <p class="forward-back">></p>
-                    </div>
-                    <div class="slide">
-                        <p class="forward-back"><</p>
-                        <img class="slide-img" src="images/M0wP9KB6STDjjVQOwVqv.jpg" alt="">
-                        <p class="slide-message"></p>
-                        <p class="forward-back">></p>
-                    </div>
-                    <div class="slide">
-                        <p class="forward-back"><</p>
-                        <img class="slide-img" src="images/KH6yFrC0apYASEeRQ5g5.jpg" alt="">
-                        <p class="slide-message"></p>
-                        <p class="forward-back">></p>
+            <div class="recommend-tour">
+                <div class="bg-travel">
+                    <h3 class="recommend-title">おすすめ特集</h3>
+                    <div class="slide-show">
+                        <div class="slide">
+                            <p class="forward-back"><</p>
+                            <img class="slide-img" src="images/J3Dc3vWZhG4jJo3BkG5m.jpg" alt="">
+                            <p class="slide-message"></p>
+                            <p class="forward-back">></p>
+                        </div>
+                        <div class="slide">
+                            <p class="forward-back"><</p>
+                            <img class="slide-img" src="images/M0wP9KB6STDjjVQOwVqv.jpg" alt="">
+                            <p class="slide-message"></p>
+                            <p class="forward-back">></p>
+                        </div>
+                        <div class="slide">
+                            <p class="forward-back"><</p>
+                            <img class="slide-img" src="images/KH6yFrC0apYASEeRQ5g5.jpg" alt="">
+                            <p class="slide-message"></p>
+                            <p class="forward-back">></p>
+                        </div>
                     </div>
                 </div>
+                <h3>出発が決定しています！おすすめツアー</h3>
+                <a href="#" class="look-recommend">一覧を見る</a>
             </div>
-            <h3>出発が決定しています！おすすめツアー</h3>
-            <a href="#" class="look-recommend">一覧を見る</a>
+
+            <section class="inquiry">
+                <h1 class="inquiry-header" >旅のご予約・ご相談などお気軽にお問い合わせください。</h1>
+                <div class="inquiry-wrapper">
+                    <div class="tel-inquiry">
+                        <h3 class="inquiry-title">お電話でのお問い合わせ</h3>
+                        <div class="tel-info">
+                            <img src="images/icon_phone.png" alt="" class="tel-img"><span class="tel-num">03-3265-1691</span>
+                            <p>営業時間:月〜金、10:00〜18:00（土・日・祝休み）</p>
+                        </div>
+                    </div>
+                    <div class="web-inquiry">
+                        <h3 class="inquiry-title">WEBでのお問い合わせ</h3>
+                        <div class="web-info">
+                            <a href="#"><img src="images/txt_mail02.png" alt=""> お問い合わせフォーム</a>
+                        </div>
+                    </div>
+                    <div class="magazine-inquiry">
+                        <h3 class="inquiry-title">三進トラベルサービスから<br>旅の情報をお届けします！</h3>
+                        <div class="mail-magazine">
+                            <a href="#">メールマガジンの<br>登録はこちら</a>
+                            <img src="images/icon_note03.png" alt="">
+                        </div>
+                    </div>
+                    <div class="pamphlet-inquiry">
+                        <h3 class="inquiry-title">パンフレットのご請求</h3>
+                        <div class="pamphlet">
+                            <a href="#">旅行情報誌<br>パンフレット 請求</a>
+                            <img src="images/icon_note05.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="link-banners">
+                <div class="banners">
+                    <span><</span>
+                    <div class="banner">
+                        <a href="#"><img src="images/bnr_partner01.jpg" alt=""></a>
+                    </div>
+                    <div class="banner">
+                        <a href="#"><img src="images/bnr_partner02.jpg" alt=""></a>
+                    </div>
+                    <div class="banner">
+                        <a href="#"><img src="images/bnr_partner03.jpg" alt=""></a>
+                    </div>
+                    <div class="banner">
+                        <a href="#"><img src="images/bnr_partner04.jpg" alt=""></a>
+                    </div>
+                    <span>></span>
+                </div>
+            </section>
+
+            <div class="page-upper">
+                <div>
+                    <a href="#" class="go-upper">ページ先頭へ</a>
+                </div>
+            </div>
+
+            <section class="page-links">
+                <div class="one-line">
+                    <div class="one-link">
+                        <a href="#" class="link-header"><img src="images/f_icon01.png" alt=""> 海外ツアー（添乗員同行）<span class="abroad-domestic-tour">></span></a>
+                        <ul class="link-lists">
+                            <li><a href="#">ヨーロッパ</a></li>
+                            <li><a href="#">中近東・中央アジア</a></li>
+                            <li><a href="#">アフリカ</a></li>
+                            <li><a href="#">アジア・インド</a></li>
+                            <li><a href="#">中国</a></li>
+                            <li><a href="#">北米</a></li>
+                            <li><a href="#">中南米・カリブ</a></li>
+                            <li><a href="#">オセアニア・太平洋</a></li>
+                            <li><a href="#">北極・南極</a></li>
+                        </ul>
+                    </div>
+                    <div class="one-link">
+                        <a href="#" class="link-header">海外自由（個人旅行）<span class="abroad-free">></span></a>
+                    </div>
+                </div>
+                <div class="one-line">
+                    <div class="one-link">
+                        <a href="#" class="link-header"><img src="images/f_icon02.png" alt=""> 国内ツアー（添乗員同行）<span class="abroad-domestic-tour">></span></a>
+                        <ul class="link-lists">
+                            <li><a href="#">北海道</a></li>
+                            <li><a href="#">東北</a></li>
+                            <li><a href="#">関東</a></li>
+                            <li><a href="#">東海・中部</a></li>
+                            <li><a href="#">北陸・甲信越</a></li>
+                            <li><a href="#">関西</a></li>
+                            <li><a href="#">中国・四国</a></li>
+                            <li><a href="#">九州・沖縄</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-line">
+                    <div class="one-link">
+                        <a href="#" class="link-header">特集を見る<span class="tour-features">></span></a>
+                        <ul class="link-lists">
+                            <li><a href="#">海外ツアー</a></li>
+                            <li><a href="#">国内ツアー</a></li>
+                            <li><a href="#">海外自由（個人旅行）</a></li>
+                            <li><a href="#">その他</a></li>
+                        </ul>
+                    </div>
+                    <div class="one-link">
+                        <a href="#" class="link-header">旅行説明会・イベント<span class="event-customer">></span></a>
+                    </div>
+                    <div class="one-link">
+                        <a href="#" class="link-header">法人・団体のお客様へ<span class="event-customer">></span></a>
+                    </div>
+                    <div class="one-link">
+                        <a href="#" class="link-header">社内ブログ・SNS<span class="blog-sns">></span></a>
+                        <ul class="link-lists">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="associations">
+                <img src="images/bnr_f02.png" alt="">
+                <img src="images/bnr_f03.png" alt="">
+            </section>
+
+            <section id="sticky-button" class="btn-side">
+                <ul>
+                    <li><a href="#"><img src="images/btn_side01.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/btn_side02.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/btn_side03.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/btn_side04.png" alt=""></a></li>
+                </ul>
+            </section>
         </div>
-
-        <section class="inquiry">
-            <h1 class="inquiry-header" >旅のご予約・ご相談などお気軽にお問い合わせください。</h1>
-            <div class="inquiry-wrapper">
-                <div class="tel-inquiry">
-                    <h3 class="inquiry-title">お電話でのお問い合わせ</h3>
-                    <div class="tel-info">
-                        <img src="images/icon_phone.png" alt="" class="tel-img"><span class="tel-num">03-3265-1691</span>
-                        <p>営業時間:月〜金、10:00〜18:00（土・日・祝休み）</p>
-                    </div>
-                </div>
-                <div class="web-inquiry">
-                    <h3 class="inquiry-title">WEBでのお問い合わせ</h3>
-                    <div class="web-info">
-                        <a href="#"><img src="images/txt_mail02.png" alt=""> お問い合わせフォーム</a>
-                    </div>
-                </div>
-                <div class="magazine-inquiry">
-                    <h3 class="inquiry-title">三進トラベルサービスから<br>旅の情報をお届けします！</h3>
-                    <div class="mail-magazine">
-                        <a href="#">メールマガジンの<br>登録はこちら</a>
-                        <img src="images/icon_note03.png" alt="">
-                    </div>
-                </div>
-                <div class="pamphlet-inquiry">
-                    <h3 class="inquiry-title">パンフレットのご請求</h3>
-                    <div class="pamphlet">
-                        <a href="#">旅行情報誌<br>パンフレット 請求</a>
-                        <img src="images/icon_note05.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="link-banners">
-            <div class="banners">
-                <span><</span>
-                <div class="banner">
-                    <a href="#"><img src="images/bnr_partner01.jpg" alt=""></a>
-                </div>
-                <div class="banner">
-                    <a href="#"><img src="images/bnr_partner02.jpg" alt=""></a>
-                </div>
-                <div class="banner">
-                    <a href="#"><img src="images/bnr_partner03.jpg" alt=""></a>
-                </div>
-                <div class="banner">
-                    <a href="#"><img src="images/bnr_partner04.jpg" alt=""></a>
-                </div>
-                <span>></span>
-            </div>
-        </section>
-
-        <div class="page-upper">
-            <div>
-                <a href="#" class="go-upper">ページ先頭へ</a>
-            </div>
-        </div>
-
-        <section class="page-links">
-            <div class="one-line">
-                <div class="one-link">
-                    <h3 class="link-header"><img src="images/f_icon01.png" alt=""> 海外ツアー（添乗員同行）<span class="abroad-domestic-tour">></span></h3>
-                    <ul>
-                        <li><a href="#">ヨーロッパ</a></li>
-                        <li><a href="#">中近東・中央アジア</a></li>
-                        <li><a href="#">アフリカ</a></li>
-                        <li><a href="#">アジア・インド</a></li>
-                        <li><a href="#">中国</a></li>
-                        <li><a href="#">北米</a></li>
-                        <li><a href="#">中南米・カリブ</a></li>
-                        <li><a href="#">オセアニア・太平洋</a></li>
-                        <li><a href="#">北極・南極</a></li>
-                    </ul>
-                </div>
-                <div class="one-link">
-                    <h3 class="link-header">海外自由（個人旅行）<span class="abroad-free">></span></h3>
-                </div>
-            </div>
-            <div class="one-line">
-                <div class="one-link">
-                    <h3 class="link-header"><img src="images/f_icon02.png" alt=""> 国内ツアー（添乗員同行）<span class="abroad-domestic-tour">></span></h3>
-                    <ul>
-                        <li><a href="#">北海道</a></li>
-                        <li><a href="#">東北</a></li>
-                        <li><a href="#">関東</a></li>
-                        <li><a href="#">東海・中部</a></li>
-                        <li><a href="#">北陸・甲信越</a></li>
-                        <li><a href="#">関西</a></li>
-                        <li><a href="#">中国・四国</a></li>
-                        <li><a href="#">九州・沖縄</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="one-line">
-                <div class="one-link">
-                    <h3 class="link-header">特集を見る<span>></span></h3>
-                    <ul>
-                        <li><a href="#">海外ツアー</a></li>
-                        <li><a href="#">国内ツアー</a></li>
-                        <li><a href="#">海外自由（個人旅行）</a></li>
-                        <li><a href="#">その他</a></li>
-                    </ul>
-                </div>
-                <div class="one-link">
-                    <h3 class="link-header">旅行説明会・イベント<span>></span></h3>
-                </div>
-                <div class="one-link">
-                    <h3 class="link-header">法人・団体のお客様へ<span>></span></h3>
-                </div>
-                <div class="one-link">
-                    <h3 class="link-header">社内ブログ・SNS<span>></span></h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Youtube</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="associations">
-            <img src="images/bnr_f02.png" alt="">
-            <img src="images/bnr_f03.png" alt="">
-        </section>
     </main>
 
     <footer>
         <div class="footer-menu">
-            <ul>
-                <li><a href="#">会社案内・IR情報・採用情報</a></li>
-                <li>|</li>
-                <li><a href="#">標識・約款</a></li>
-                <li>|</li>
-                <li><a href="#">個人情報保護方針</a></li>
-                <li>|</li>
-                <li><a href="#">当サイトについて</a></li>
-                <li>|</li>
-                <li><a href="#">お問い合わせ</a></li>
-                <li>|</li>
-                <li><a href="#">サイトマップ</a></li>
-            </ul>
+            <div>
+                <ul>
+                    <li><a href="#">会社案内・IR情報・採用情報</a></li>
+                    <li>|</li>
+                    <li><a href="#">標識・約款</a></li>
+                    <li>|</li>
+                    <li><a href="#">個人情報保護方針</a></li>
+                    <li>|</li>
+                    <li><a href="#">当サイトについて</a></li>
+                    <li>|</li>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li>|</li>
+                    <li><a href="#">サイトマップ</a></li>
+                </ul>
+            </div>
         </div>
-        <p>Copyright ©︎ Sansin Travel Co.,Ltd. All Rights Reserved.</p>
+        <p class="copy-right">Copyright ©︎ Sansin Travel Co.,Ltd. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
