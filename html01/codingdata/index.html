@@ -417,7 +417,7 @@
                 <img src="images/bnr_f03.png" alt="">
             </section>
 
-            <section id="sticky-button" class="btn-side">
+            <section id="sticky" class="btn-side">
                 <ul>
                     <li><a href="#"><img src="images/btn_side01.png" alt=""></a></li>
                     <li><a href="#"><img src="images/btn_side02.png" alt=""></a></li>
@@ -446,7 +446,39 @@
                 </ul>
             </div>
         </div>
-        <p class="copy-right">Copyright ©︎ Sansin Travel Co.,Ltd. All Rights Reserved.</p>
+        <p class="copy-right">Copyright ©︎ Sanshin Travel Co.,Ltd. All Rights Reserved.</p>
     </footer>
+
+
+<script>
+var $window = $(window);
+var $content = $('#content');
+var $sticky = $('#sticky');
+var topContent = $content.offset().top;
+
+var change = false;
+
+$window.on('scroll', function(){
+    if ($window.scrollTop() > topContent) {
+        if (change === false) {
+            $sticky.removeClass('sticky-absolute');
+            $sticky.addClass('sticky-fixed')
+            change = true;
+        }
+    } else {
+        if (change === true) {
+            $sticky.removeClass('sticky-fixed');
+            $sticky.addClass('sticky-absolute')
+            change = false;
+        }
+    }
+});
+
+$window.trigger('scroll');
+
+</script>
+
+
+
 </body>
 </html>

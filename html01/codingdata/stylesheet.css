@@ -1234,8 +1234,13 @@ footer {
     position: relative;
 }
 
-#sticky-button {
+.sticky-absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.sticky-fixed {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
 }
