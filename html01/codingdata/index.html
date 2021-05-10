@@ -266,24 +266,22 @@
             <div class="recommend-tour">
                 <div class="bg-travel">
                     <h3 class="recommend-title">おすすめ特集</h3>
-                    <div class="slide-show">
-                        <div class="slide">
-                            <p class="forward-back"><</p>
-                            <img class="slide-img" src="images/J3Dc3vWZhG4jJo3BkG5m.jpg" alt="">
-                            <p class="slide-message"></p>
-                            <p class="forward-back">></p>
-                        </div>
-                        <div class="slide">
-                            <p class="forward-back"><</p>
-                            <img class="slide-img" src="images/M0wP9KB6STDjjVQOwVqv.jpg" alt="">
-                            <p class="slide-message"></p>
-                            <p class="forward-back">></p>
-                        </div>
-                        <div class="slide">
-                            <p class="forward-back"><</p>
-                            <img class="slide-img" src="images/KH6yFrC0apYASEeRQ5g5.jpg" alt="">
-                            <p class="slide-message"></p>
-                            <p class="forward-back">></p>
+                    <p class="forward-back"><</p>
+                    <p class="forward-back">></p>
+                    <div class="slider">
+                        <div class="slide-set">
+                            <div class="slide">
+                                <img class="slide-img" src="images/J3Dc3vWZhG4jJo3BkG5m.jpg" alt="">
+                                <p class="slide-message">スライド１</p>
+                            </div>
+                            <div class="slide">
+                                <img class="slide-img" src="images/M0wP9KB6STDjjVQOwVqv.jpg" alt="">
+                                <p class="slide-message">スライド２</p>
+                            </div>
+                            <div class="slide">
+                                <img class="slide-img" src="images/KH6yFrC0apYASEeRQ5g5.jpg" alt="">
+                                <p class="slide-message">スライド３</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -454,27 +452,21 @@
 var $window = $(window);
 var $content = $('#content');
 var $sticky = $('#sticky');
-var topContent = $content.offset().top;
-
-var change = false;
+var $topContent = $content.offset().top;
+var startScroll = $topContent - 100;
 
 $window.on('scroll', function(){
-    if ($window.scrollTop() > topContent) {
-        if (change === false) {
+    if ($window.scrollTop() > startScroll) {
             $sticky.removeClass('sticky-absolute');
             $sticky.addClass('sticky-fixed')
-            change = true;
-        }
+        
     } else {
-        if (change === true) {
             $sticky.removeClass('sticky-fixed');
             $sticky.addClass('sticky-absolute')
-            change = false;
         }
-    }
+    
 });
 
-$window.trigger('scroll');
 
 </script>
 

@@ -907,6 +907,31 @@ body {
     padding-left: 10rem;
 }
 
+.slider .slide {
+    float: left;
+    width: 754px;
+    height: 432px;
+}
+
+.slide .slide-set {
+    width: 2262px;
+}
+
+.slide {
+    position: relative;
+    z-index: 1;
+}
+
+.slide-message {
+    position: absolute;
+  
+    z-index: 2;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+}
+
+
 .look-recommend {
     color: black;
     display: inline-block;
@@ -1241,6 +1266,6 @@ footer {
 }
 .sticky-fixed {
     position: fixed;
-    top: 0;
+    top: 100px;
     right: 0;
 }
