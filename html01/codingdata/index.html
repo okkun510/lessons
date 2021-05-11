@@ -266,21 +266,23 @@
             <div class="recommend-tour">
                 <div class="bg-travel">
                     <h3 class="recommend-title">おすすめ特集</h3>
-                    <p class="forward-back"><</p>
-                    <p class="forward-back">></p>
+                    <p class="slide-prev"><</p>
+                    <p class="slide-next">></p>
                     <div class="slider">
-                        <div class="slide-set">
-                            <div class="slide">
-                                <img class="slide-img" src="images/J3Dc3vWZhG4jJo3BkG5m.jpg" alt="">
-                                <p class="slide-message">スライド１</p>
-                            </div>
-                            <div class="slide">
-                                <img class="slide-img" src="images/M0wP9KB6STDjjVQOwVqv.jpg" alt="">
-                                <p class="slide-message">スライド２</p>
-                            </div>
-                            <div class="slide">
-                                <img class="slide-img" src="images/KH6yFrC0apYASEeRQ5g5.jpg" alt="">
-                                <p class="slide-message">スライド３</p>
+                        <div class="slide-inner">
+                            <div class="slide-set">
+                                <div class="slide">
+                                    <img class="slide-img" src="images/J3Dc3vWZhG4jJo3BkG5m.jpg" alt="">
+                                    <p class="slide-message">スライド１</p>
+                                </div>
+                                <div class="slide">
+                                    <img class="slide-img" src="images/M0wP9KB6STDjjVQOwVqv.jpg" alt="">
+                                    <p class="slide-message">スライド２</p>
+                                </div>
+                                <div class="slide">
+                                    <img class="slide-img" src="images/KH6yFrC0apYASEeRQ5g5.jpg" alt="">
+                                    <p class="slide-message">スライド３</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -465,6 +467,39 @@ $window.on('scroll', function(){
             $sticky.addClass('sticky-absolute')
         }
     
+});
+
+
+var $slideSet = $('.slide-set');
+//var left = parseInt($slideSet.css('left').replace('px', ''));
+var left = 0;
+var slideCount = $slideSet.find('.slide').length;
+var slideSize = $slideSet.find('.slide').eq(0).width();
+var leftMax = 0;
+//var rightMax = -1508;
+var rightMax = (slideCount - 1) * slideSize * -1;
+console.log(left);
+
+// leftが増えると右に動いて、leftが減ると左に動く
+
+$('.slide-prev').on('click', function() {
+    
+    if (left < 0) {
+        left = (left + slideSize);
+    } else {
+        left = -1508;
+    }
+    $slideSet.animate({left: left + 'px'}, 500);
+});
+
+$('.slide-next').on('click', function() {
+    if (left > -1508) {
+        left = (left - slideSize);
+        $slideSet.animate({left: left + 'px'}, 500);
+    } else {
+        left = 0;
+        $slideSet.animate({left: left + 'px'}, 500);
+    }
 });
 
 
