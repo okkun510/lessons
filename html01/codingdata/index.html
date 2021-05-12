@@ -266,9 +266,9 @@
             <div class="recommend-tour">
                 <div class="bg-travel">
                     <h3 class="recommend-title">おすすめ特集</h3>
-                    <p class="slide-prev"><</p>
-                    <p class="slide-next">></p>
                     <div class="slider">
+                        <p class="slide-prev"><</p>
+                        <p class="slide-next">></p>
                         <div class="slide-inner">
                             <div class="slide-set">
                                 <div class="slide">
@@ -287,7 +287,7 @@
                         </div>
                     </div>
                 </div>
-                <h3>出発が決定しています！おすすめツアー</h3>
+                <h3 class="recommend-sentence">出発が決定しています！おすすめツアー</h3>
                 <a href="#" class="look-recommend">一覧を見る</a>
             </div>
 
@@ -480,26 +480,35 @@ var leftMax = 0;
 var rightMax = (slideCount - 1) * slideSize * -1;
 console.log(left);
 
+var sliderSetTemplate = $('.slide-set').clone();
+
 // leftが増えると右に動いて、leftが減ると左に動く
+
+sliderSetTemplate.find('.slide').appendTo('.slide-set')
+sliderSetTemplate.find('.slide').prependTo('.slide-set')
 
 $('.slide-prev').on('click', function() {
     
-    if (left < 0) {
+    if (left < leftMax) {
         left = (left + slideSize);
+        $slideSet.animate({left: left + 'px'}, 500);
+
     } else {
-        left = -1508;
+        left = rightMax;
+        $slideSet.animate({left: left + 'px'}, 500);
+
     }
-    $slideSet.animate({left: left + 'px'}, 500);
+    
 });
 
+
 $('.slide-next').on('click', function() {
-    if (left > -1508) {
+    if (left > rightMax) {
         left = (left - slideSize);
-        $slideSet.animate({left: left + 'px'}, 500);
     } else {
-        left = 0;
-        $slideSet.animate({left: left + 'px'}, 500);
+        left = leftMax;
     }
+    $slideSet.animate({left: left + 'px'}, 500);
 });
 
 
