@@ -917,13 +917,11 @@ body {
 
 .slider .slide-inner {
     width: 754px;
-    height: 432px;
     border: 3px solid #0F0;
     margin: auto;
 }
 
 .slider .slide-set {
-    width: 2262px;
     border: 3px solid #00F; box-sizing: content-box;
 }
 
@@ -937,7 +935,6 @@ body {
 .slider .slide {
     float: left;
     width: 754px;
-    height: 432px;
     position: relative;
     z-index: 1;
 }

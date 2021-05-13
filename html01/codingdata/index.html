@@ -466,39 +466,73 @@ $window.on('scroll', function(){
             $sticky.removeClass('sticky-fixed');
             $sticky.addClass('sticky-absolute')
         }
-    
 });
 
 
 var $slideSet = $('.slide-set');
 //var left = parseInt($slideSet.css('left').replace('px', ''));
-var left = 0;
+
+//スライドを増やす
+$slideSet.find('.slide').each(function () {
+    $(this).clone().appendTo('.slide-set');
+});
+$slideSet.find('.slide').each(function () {
+    $(this).clone().appendTo('.slide-set');
+});
+
+//スライドの数
 var slideCount = $slideSet.find('.slide').length;
+//スライド１つの幅
 var slideSize = $slideSet.find('.slide').eq(0).width();
-var leftMax = 0;
-//var rightMax = -1508;
-var rightMax = (slideCount - 1) * slideSize * -1;
-console.log(left);
+//スライド１つの高さ
+var slideHeight = $slideSet.find('.slide').eq(0).height();
+//slideSet の Width,Height 設定
+var maxSize = slideCount * slideSize;
+$('.slide-set').css({'width': maxSize, 'height': slideHeight});
+$('.slider').css({'height': slideHeight});
 
-var sliderSetTemplate = $('.slide-set').clone();
+//leftのdefault値を取得（左から４つ目のスライド）
+var defaultLeft = -(slideSize * 3);
+$slideSet.css({'left': defaultLeft});
+//leftの最大値を取得
+var maxLeft = -(slideSize * 5);
+//現在のスライドの順番（初期値は1。右に行く毎に１増えて、３の次は１に戻る）
+var currentSlide = 1;
 
-// leftが増えると右に動いて、leftが減ると左に動く
-
-sliderSetTemplate.find('.slide').appendTo('.slide-set')
-sliderSetTemplate.find('.slide').prependTo('.slide-set')
+//slideSet の Left 変更
 
 $('.slide-prev').on('click', function() {
+    //
+    left = (parseInt($slideSet.css('left').replace('px', '')) + slideSize);
     
-    if (left < leftMax) {
-        left = (left + slideSize);
+    console.log('default:' + defaultLeft);
+    console.log('left:' + left);
+    
+    if (left > defaultLeft) {
         $slideSet.animate({left: left + 'px'}, 500);
+        console.log('端じゃないよ');
 
     } else {
-        left = rightMax;
         $slideSet.animate({left: left + 'px'}, 500);
-
+        $slideSet.css({'left': maxLeft + 'px'});
+        
+        console.log('端だから元に戻すよ->' + parseInt($slideSet.css('left')));
+        console.log('maxLeft->' + maxLeft);
     }
-    
+
+    // console.log(currentSlide);
+    // console.log($slideSet.css('left'));
+    // //もし現在値が左端だったら
+    // if(currentSlide < 1) {
+    //     var currentSlide = 3;
+    //     $slideSet.css({'left': maxLeft});
+    //     left = (maxLeft + slideSize);
+    //     $slideSet.animate({left: left + 'px'}, 500);
+
+    // } else {
+    //     left = (parseInt($slideSet.css('left').replace('px', '')) + slideSize);
+    //     $slideSet.animate({left: left + 'px'}, 500);
+    // }
 });
 
 
