@@ -63,13 +63,39 @@
         <div class="bg-main">
             <div class="abroad-information">
                 <div class="abroad-feature">
-                    <div>
-                        <img class="feature-img" src="images/xURdYLr1dqi8lFyLcOnl.jpg">
-                        <div class="bg-feature">
-                            <p class="feature-sentence">【新感覚オンラインツアー】コーカサスの国ジョージアへ「トビリシありのまま」</p>
-                            <a href="#" class="feature-button">詳細はこちら</a>
+                    <div class="abroad-feature-slider">
+                        <div class="abroad-feature-slide-wrapper">
+                            <div class="feature-wrapper abroad-feature-slide">
+                                <img class="feature-img" src="images/xURdYLr1dqi8lFyLcOnl.jpg">
+                                <div class="bg-feature">
+                                    <p class="feature-sentence">【新感覚オンラインツアー】コーカサスの国ジョージアへ「トビリシありのまま」</p>
+                                    <a href="#" class="feature-button">詳細はこちら</a>
+                                </div>
+                            </div>
+                            <div class="feature-wrapper abroad-feature-slide">
+                                <img class="feature-img" src="images/yLrAv7cyA7RzuXy7C9SR.jpg">
+                                <div class="bg-feature">
+                                    <p class="feature-sentence">サマルカンドありのまま〜ウズベキスタン青の都〜</p>
+                                    <a href="#" class="feature-button">詳細はこちら</a>
+                                </div>
+                            </div>
+                            <div class="feature-wrapper abroad-feature-slide">
+                                <img class="feature-img" src="images/xURdYLr1dqi8lFyLcOnl.jpg">
+                                <div class="bg-feature">
+                                    <p class="feature-sentence">C</p>
+                                    <a href="#" class="feature-button">詳細はこちら</a>
+                                </div>
+                            </div>
+                            <div class="feature-wrapper abroad-feature-slide">
+                                <img class="feature-img" src="images/xURdYLr1dqi8lFyLcOnl.jpg">
+                                <div class="bg-feature">
+                                    <p class="feature-sentence">D</p>
+                                    <a href="#" class="feature-button">詳細はこちら</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="aboard-feature-slide-pager"></div>
                 </div>
                 <article class="abroad-news">
                     <ul class="one-news">
@@ -451,6 +477,7 @@
 
 
 <script>
+//////////ついてくるサイドバー の処理//////////
 var $window = $(window);
 var $content = $('#content');
 var $sticky = $('#sticky');
@@ -469,6 +496,7 @@ $window.on('scroll', function(){
 });
 
 
+//////////スライドショー の処理//////////
 var $slideSet = $('.slide-set');
 //var left = parseInt($slideSet.css('left').replace('px', ''));
 
@@ -499,50 +527,51 @@ var maxLeft = -(slideSize * 5);
 //現在のスライドの順番（初期値は1。右に行く毎に１増えて、３の次は１に戻る）
 var currentSlide = 1;
 
-//slideSet の Left 変更
-
 $('.slide-prev').on('click', function() {
-    //
-    left = (parseInt($slideSet.css('left').replace('px', '')) + slideSize);
     
-    console.log('default:' + defaultLeft);
-    console.log('left:' + left);
-    
-    if (left > defaultLeft) {
+    currentSlide = currentSlide - 1;
+
+    //もし現在値が左端だったら
+    if(currentSlide < 1) {
+        //３のよこにあるコピーした１に飛ぶ
+        jumpLeft = (maxLeft - slideSize);
+        $slideSet.css({'left': jumpLeft + 'px'});
+
+        //今のleftを取得しスライドする
+        left = (parseInt($('.slide-set').css('left').replace('px', '')) + slideSize);
         $slideSet.animate({left: left + 'px'}, 500);
-        console.log('端じゃないよ');
+        
+        //currentSlideに三番目の数値を再代入する
+        currentSlide = currentSlide + 3;
 
     } else {
+        left = (parseInt($slideSet.css('left').replace('px', '')) + slideSize);
         $slideSet.animate({left: left + 'px'}, 500);
-        $slideSet.css({'left': maxLeft + 'px'});
-        
-        console.log('端だから元に戻すよ->' + parseInt($slideSet.css('left')));
-        console.log('maxLeft->' + maxLeft);
     }
-
-    // console.log(currentSlide);
-    // console.log($slideSet.css('left'));
-    // //もし現在値が左端だったら
-    // if(currentSlide < 1) {
-    //     var currentSlide = 3;
-    //     $slideSet.css({'left': maxLeft});
-    //     left = (maxLeft + slideSize);
-    //     $slideSet.animate({left: left + 'px'}, 500);
-
-    // } else {
-    //     left = (parseInt($slideSet.css('left').replace('px', '')) + slideSize);
-    //     $slideSet.animate({left: left + 'px'}, 500);
-    // }
 });
 
 
 $('.slide-next').on('click', function() {
-    if (left > rightMax) {
-        left = (left - slideSize);
+
+    currentSlide = currentSlide + 1;
+
+    //もし現在値が右端だったら
+    if(currentSlide > 3) {
+        //１に飛ぶ
+        jumpLeft = (defaultLeft + slideSize);
+        $slideSet.css({'left': jumpLeft + 'px'});
+
+        //今のleftを取得しスライドする
+        left = (parseInt($('.slide-set').css('left').replace('px', '')) - slideSize);
+        $slideSet.animate({left: left + 'px'}, 500);
+        
+        //currentSlideに三番目の数値を再代入する
+        currentSlide = currentSlide - 3;
+
     } else {
-        left = leftMax;
+        left = (parseInt($slideSet.css('left').replace('px', '')) - slideSize);
+        $slideSet.animate({left: left + 'px'}, 500);
     }
-    $slideSet.animate({left: left + 'px'}, 500);
 });
 
 
