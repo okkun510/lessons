@@ -95,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="aboard-feature-slide-pager"></div>
+                    <div class="abroad-feature-pagination"></div>
                 </div>
                 <article class="abroad-news">
                     <ul class="one-news">
@@ -495,8 +495,66 @@ $window.on('scroll', function(){
         }
 });
 
+//////////海外ツアースライドショー の処理//////////
 
-//////////スライドショー の処理//////////
+//class:abroad-feature-slide-wrapperを取得
+var $abroadFeatureSlideWrapper = $('.abroad-feature-slide-wrapper');
+//リストの●を表示用の数を習得
+var listNum = $('.abroad-feature-slide').length;
+//スライドを増やす
+$abroadFeatureSlideWrapper.find('.abroad-feature-slide').each(function () {
+    $(this).clone().appendTo('.abroad-feature-slide-wrapper');
+});
+$abroadFeatureSlideWrapper.find('.abroad-feature-slide').each(function () {
+    $(this).clone().appendTo('.abroad-feature-slide-wrapper');
+});
+
+//スライドの数
+var abroadFeatureSlideCount = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').length;
+//スライド１つの幅
+var abroadFeatureSlideSize = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').eq(0).width();
+//スライド１つの高さ
+var abroadFeatureSlideHeight = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').eq(0).height();
+//abroadFeatureSlideWrapper の Width,Height 設定
+var abroadFeatureMaxSize = abroadFeatureSlideCount * abroadFeatureSlideSize;
+$('.abroad-feature-slide-wrapper').css({'width': abroadFeatureMaxSize, 'height': abroadFeatureSlideHeight});
+$('.abroad-feature-slider').css({'height': abroadFeatureSlideHeight});
+
+//画像の数だけ●ボタンを作成
+for (i = 0; i < listNum; i++){
+	$('.abroad-feature-pagination').prepend('<div></div>');
+}
+
+//現在のスライドの順番
+var currentNum = 1;
+
+// //leftのdefault値を取得（左から４つ目のスライド）
+// var defaultLeft = -(slideSize * 3);
+// $slideSet.css({'left': defaultLeft});
+// //leftの最大値を取得
+// var maxLeft = -(slideSize * 5);
+// //現在のスライドの順番（初期値は1。右に行く毎に１増えて、３の次は１に戻る）
+// var currentSlide = 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////中央スライドショー の処理//////////
 var $slideSet = $('.slide-set');
 //var left = parseInt($slideSet.css('left').replace('px', ''));
 

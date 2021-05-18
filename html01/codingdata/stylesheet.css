@@ -313,18 +313,25 @@ body {
     margin-bottom: 20px;
 }
 
+
+
+
+
+
+
+
 /* abroad-feature-slider */
 /* abroad-feature-slide-wrapper */
 /* abroad-feature-slide */
 
 .abroad-feature-slider {
     width: 670px;
-    height: 500px;
     overflow: hidden;
     position: relative;
 }
 
 .abroad-feature-slide-wrapper {
+    
     display: flex;
     flex-wrap: nowrap;
     position: absolute;
@@ -335,6 +342,25 @@ body {
 .abroad-feature-slide {
     width: 670px;
     height: auto;
+}
+
+.abroad-feature-pagination {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.abroad-feature-pagination div {
+    margin: 30px 5px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+}
+
+.aboard-feature-pagination div.current {
+    color: #1960a7;
 }
 
 
