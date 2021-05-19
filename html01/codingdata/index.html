@@ -520,13 +520,54 @@ var abroadFeatureMaxSize = abroadFeatureSlideCount * abroadFeatureSlideSize;
 $('.abroad-feature-slide-wrapper').css({'width': abroadFeatureMaxSize, 'height': abroadFeatureSlideHeight});
 $('.abroad-feature-slider').css({'height': abroadFeatureSlideHeight});
 
+var abroadFeatureDefaultLeft = -(abroadFeatureSlideSize * listNum);
+$abroadFeatureSlideWrapper.css({'left': abroadFeatureDefaultLeft});
+
 //画像の数だけ●ボタンを作成
 for (i = 0; i < listNum; i++){
-	$('.abroad-feature-pagination').prepend('<div></div>');
+	$('.abroad-feature-pagination').append('<div class="abroad-feature-indicator __number' + i + '"></div>');
 }
 
 //現在のスライドの順番
-var currentNum = 1;
+var currentNum = 0;
+//最後のスライドの番号
+var lastNum = listNum - 1;
+//現在の左の位置
+var currentLeft = 0;
+
+console.log(currentNum);
+
+$('.__number' + currentNum ).addClass('current');
+setInterval (function() {
+    currentNum = currentNum + 1;
+    
+    if (currentNum > lastNum) {
+        //最初に飛ぶ
+        currentNum = 0;
+        $('.__number' + currentNum ).addClass('current');
+        $('.abroad-feature-indicator').not('.__number' + currentNum).removeClass('current');
+        
+        var resetLeft = (abroadFeatureDefaultLeft + abroadFeatureSlideSize);
+        $abroadFeatureSlideWrapper.css({'left': resetLeft + 'px'});
+        
+        //今のleftを取得しスライドする
+        left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
+        $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
+
+
+        console.log('jump!' + currentNum);
+
+    } else {
+        $('.__number' + currentNum ).addClass('current');
+        $('.abroad-feature-indicator').not('.__number' + currentNum).removeClass('current');
+
+        left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
+        $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
+
+        
+        console.log(currentNum);
+    }
+}, 3000);
 
 // //leftのdefault値を取得（左から４つ目のスライド）
 // var defaultLeft = -(slideSize * 3);

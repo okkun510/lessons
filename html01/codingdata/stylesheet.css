@@ -350,17 +350,18 @@ body {
     justify-content: center;
 }
 
-.abroad-feature-pagination div {
+.abroad-feature-indicator {
     margin: 30px 5px;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border: 1px solid #d3d3d3;
     border-radius: 50%;
     background-color: #d3d3d3;
 }
 
-.aboard-feature-pagination div.current {
-    color: #1960a7;
+.current {
+    border: 1px solid #1960a7;
+    background-color: #1960a7;
 }
 
 
