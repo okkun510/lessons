@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             <div class="feature-wrapper abroad-feature-slide">
-                                <img class="feature-img" src="images/xURdYLr1dqi8lFyLcOnl.jpg">
+                                <img class="feature-img" src="images/yLrAv7cyA7RzuXy7C9SR.jpg">
                                 <div class="bg-feature">
                                     <p class="feature-sentence">D</p>
                                     <a href="#" class="feature-button">詳細はこちら</a>
@@ -505,9 +505,7 @@ var listNum = $('.abroad-feature-slide').length;
 $abroadFeatureSlideWrapper.find('.abroad-feature-slide').each(function () {
     $(this).clone().appendTo('.abroad-feature-slide-wrapper');
 });
-$abroadFeatureSlideWrapper.find('.abroad-feature-slide').each(function () {
-    $(this).clone().appendTo('.abroad-feature-slide-wrapper');
-});
+
 
 //スライドの数
 var abroadFeatureSlideCount = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').length;
@@ -525,7 +523,7 @@ $abroadFeatureSlideWrapper.css({'left': abroadFeatureDefaultLeft});
 
 //画像の数だけ●ボタンを作成
 for (i = 0; i < listNum; i++){
-	$('.abroad-feature-pagination').append('<div class="abroad-feature-indicator __number' + i + '"></div>');
+	$('.abroad-feature-pagination').append('<div class="abroad-feature-indicator" id = "__dot' + i + '"></div>');
 }
 
 //現在のスライドの順番
@@ -535,63 +533,76 @@ var lastNum = listNum - 1;
 //現在の左の位置
 var currentLeft = 0;
 
+//インジケーターの色を変える（初期値）
+$('#__dot' + currentNum ).addClass('current');
 console.log(currentNum);
 
-$('.__number' + currentNum ).addClass('current');
-setInterval (function() {
-    currentNum = currentNum + 1;
+//自動スライド発火
+var timer;
+function startTimer() {
+    timer = setInterval (function() {
+                currentNum = currentNum + 1;
+        
+                if (currentNum > lastNum) {
+                    //最初に飛ぶ
+                    currentNum = 0;
+                    $('#__dot' + currentNum ).addClass('current');
+                    $('.abroad-feature-indicator').not('#__dot' + currentNum).removeClass('current');
+                    
+                    var resetLeft = (abroadFeatureDefaultLeft + abroadFeatureSlideSize);
+                    $abroadFeatureSlideWrapper.css({'left': resetLeft + 'px'});
+                    
+                    //今のleftを取得しスライドする
+                    left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
+                    $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
+
+
+                    console.log('jump!' + currentNum);
+
+                } else {
+                    $('#__dot' + currentNum ).addClass('current');
+                    $('.abroad-feature-indicator').not('#__dot' + currentNum).removeClass('current');
+
+                    left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
+                    $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
+
+                    
+                    console.log(currentNum);
+                }
+            }, 5000);
+}
+
+//自動スライド停止
+function stopTimer(){
+clearInterval(timer);
+}
+
+//スライドの処理
+startTimer();
+$(document).on('click', '.abroad-feature-indicator', function() {
+    //自動スライド停止
+    stopTimer();
+
+    //クリックされたインジケーターをIDで特定
+    var $dotId = $(this).attr('id');
+
+    //色の付け替え
+    $('.abroad-feature-indicator').not($dotId).removeClass('current');
+    $('#' + $dotId).addClass('current');
+
+    //現在番号の付け替え
+    currentNum = parseInt($dotId.replace('__dot', ''));
+
     
-    if (currentNum > lastNum) {
-        //最初に飛ぶ
-        currentNum = 0;
-        $('.__number' + currentNum ).addClass('current');
-        $('.abroad-feature-indicator').not('.__number' + currentNum).removeClass('current');
-        
-        var resetLeft = (abroadFeatureDefaultLeft + abroadFeatureSlideSize);
-        $abroadFeatureSlideWrapper.css({'left': resetLeft + 'px'});
-        
-        //今のleftを取得しスライドする
-        left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
-        $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
-
-
-        console.log('jump!' + currentNum);
-
-    } else {
-        $('.__number' + currentNum ).addClass('current');
-        $('.abroad-feature-indicator').not('.__number' + currentNum).removeClass('current');
-
-        left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
-        $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
-
-        
-        console.log(currentNum);
-    }
-}, 3000);
-
-// //leftのdefault値を取得（左から４つ目のスライド）
-// var defaultLeft = -(slideSize * 3);
-// $slideSet.css({'left': defaultLeft});
-// //leftの最大値を取得
-// var maxLeft = -(slideSize * 5);
-// //現在のスライドの順番（初期値は1。右に行く毎に１増えて、３の次は１に戻る）
-// var currentSlide = 1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //現在地の付け替え
+    left = ( abroadFeatureDefaultLeft - (abroadFeatureSlideSize * currentNum));
+    $abroadFeatureSlideWrapper.stop().animate({left: left + 'px'}, 500);
+    
+    //自動スライド発火
+    console.log('Jump to ' + currentNum);
+    console.log('タイマーリセット！');
+    startTimer();
+});
 
 
 
@@ -627,7 +638,6 @@ var maxLeft = -(slideSize * 5);
 var currentSlide = 1;
 
 $('.slide-prev').on('click', function() {
-    
     currentSlide = currentSlide - 1;
 
     //もし現在値が左端だったら
@@ -649,9 +659,7 @@ $('.slide-prev').on('click', function() {
     }
 });
 
-
 $('.slide-next').on('click', function() {
-
     currentSlide = currentSlide + 1;
 
     //もし現在値が右端だったら
@@ -672,6 +680,22 @@ $('.slide-next').on('click', function() {
         $slideSet.animate({left: left + 'px'}, 500);
     }
 });
+
+
+//////////バナースライドの処理//////////
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
