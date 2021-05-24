@@ -742,7 +742,72 @@ console.log('bannerWrapperDefaultLeft ' + -(bannerWrapperDefaultLeft));
 
 
 
+
 </script>
+
+<?php
+public function __invoke(ListUserParam $params): Collection
+    {
+        $user_reports = collect();
+
+        //有効な該当ユーザ取得
+        $users_builder = User::enabled();
+        if ($params->user_name) {
+            $users_builder->where('user_name', 'like', "%{$params->user_name}%");
+        }
+        $users = $users_builder->get();
+
+        //なかったら空コレクション返却
+        if ($users->count() === 0) {
+            return $user_reports;
+        }
+
+        //検索条件を実行した作業実績を取得
+        $work_builder = Work::query();
+        if ($params->period_from) {
+            $work_builder->where('work_date', '>=', $params->period_from);
+        }
+        if ($params->period_to) {
+            $work_builder->where('work_date', '<=', $params->period_to);
+        }
+
+        $works_collection = $work_builder->get();
+
+        //検索条件を実行したイベント付与トランを取得
+        $rewords_builder = Reward::with('event');
+        if ($params->period_from) {
+            $rewords_builder->where('reward_date', '>=', $params->period_from);
+        }
+        if ($params->period_to) {
+            $rewords_builder->where('reward_date', '<=', $params->period_to);
+        }
+        $rewords_builder->orderBy('reward_date', 'ASC');
+        
+        $rewords_collection = $rewords_builder->get();
+
+        foreach ($users as $user) {
+            $user_report = new UserMonthlyReport();
+
+            //必要情報をセット
+            $user_report->user = $user;
+            $user_report->period_from = new Carbon($params->period_from);
+            $user_report->period_to = new Carbon($params->period_to);
+            $user_report->all_works = $works_collection->where('user_id', $user->user_id);
+            $user_report->paged_works = $user_report->all_works->chunk(25);
+            $user_report->rewards = $rewords_collection->where('user_id', $user->user_id);
+            if ($user_report->rewards->isEmpty()) {
+                $user_report->total_page = count($user_report->paged_works);
+            } else {
+                $user_report->total_page = count($user_report->paged_works) + 1;
+            }
+            
+            $user_reports->push($user_report);
+        }
+
+        return $user_reports;
+    }
+
+?>
 
 
 
