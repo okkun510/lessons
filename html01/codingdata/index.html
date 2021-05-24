@@ -351,21 +351,32 @@
             </section>
 
             <section class="link-banners">
-                <div class="banners">
-                    <span><</span>
-                    <div class="banner">
-                        <a href="#"><img src="images/bnr_partner01.jpg" alt=""></a>
+                <div class="banner-slider">
+                    <div class="banner-wrapper">
+                        <div class="banner">
+                            <a href="#"><img src="images/bnr_partner01.jpg" alt=""></a>
+                        </div>
+                        <div class="banner">
+                            <a href="#"><img src="images/bnr_partner02.jpg" alt=""></a>
+                        </div>
+                        <div class="banner">
+                            <a href="#"><img src="images/bnr_partner03.jpg" alt=""></a>
+                        </div>
+                        <div class="banner">
+                            <a href="#"><img src="images/bnr_partner04.jpg" alt=""></a>
+                        </div>
+                        <div class="banner">
+                            <a href="#"><img src="images/bnr_partner05.jpg" alt=""></a>
+                        </div>
+                        <div class="banner">
+                            <a href="#"><img src="images/bnr_partner06.jpg" alt=""></a>
+                        </div>
+                        <div class="banner">
+                            <a href="#"><img src="images/bnr_partner07.jpg" alt=""></a>
+                        </div>
                     </div>
-                    <div class="banner">
-                        <a href="#"><img src="images/bnr_partner02.jpg" alt=""></a>
-                    </div>
-                    <div class="banner">
-                        <a href="#"><img src="images/bnr_partner03.jpg" alt=""></a>
-                    </div>
-                    <div class="banner">
-                        <a href="#"><img src="images/bnr_partner04.jpg" alt=""></a>
-                    </div>
-                    <span>></span>
+                    <span class="banner-prev"><</span>
+                    <span class="banner-next">></span>
                 </div>
             </section>
 
@@ -535,7 +546,6 @@ var currentLeft = 0;
 
 //インジケーターの色を変える（初期値）
 $('#__dot' + currentNum ).addClass('current');
-console.log(currentNum);
 
 //自動スライド発火
 var timer;
@@ -556,9 +566,6 @@ function startTimer() {
                     left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
                     $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
 
-
-                    console.log('jump!' + currentNum);
-
                 } else {
                     $('#__dot' + currentNum ).addClass('current');
                     $('.abroad-feature-indicator').not('#__dot' + currentNum).removeClass('current');
@@ -566,8 +573,6 @@ function startTimer() {
                     left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
                     $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
 
-                    
-                    console.log(currentNum);
                 }
             }, 5000);
 }
@@ -599,8 +604,6 @@ $(document).on('click', '.abroad-feature-indicator', function() {
     $abroadFeatureSlideWrapper.stop().animate({left: left + 'px'}, 500);
     
     //自動スライド発火
-    console.log('Jump to ' + currentNum);
-    console.log('タイマーリセット！');
     startTimer();
 });
 
@@ -683,6 +686,47 @@ $('.slide-next').on('click', function() {
 
 
 //////////バナースライドの処理//////////
+
+//banner-wrapperの取得
+var $bannerWrapper = $('.banner-wrapper');
+
+//bannerの増やす前の元々の数を取得する
+var $bannerOriginNumber = $bannerWrapper.find('.banner').length;
+//bannerの幅の取得
+var $bannerWidth = $bannerWrapper.find('.banner').eq(0).width();
+//bannerの高さの取得
+var $bannerHeight = $bannerWrapper.find('.banner').eq(0).height();
+
+//bannerを複製する
+$bannerWrapper.find('.banner').each(function () {
+    $(this).clone().appendTo('.banner-wrapper');
+});
+$bannerWrapper.find('.banner').each(function () {
+    $(this).clone().appendTo('.banner-wrapper');
+});
+
+//bannerの現在の数を取得し、その数でbanner-wrapperの幅や高さを指定する
+$bannerCount = $bannerWrapper.find('.banner').length;
+var bannerWrapperWidth = $bannerCount * $bannerWidth;
+$('.banner-wrapper').css({'width': bannerWrapperWidth, 'height': $bannerHeight});
+
+//banner-sliderの表示幅を設定
+var ShowBannerNumber = 4;
+var bannerSliderWidth = $bannerWidth * ShowBannerNumber;
+$('.banner-slider').css({'width': bannerSliderWidth, 'height': $bannerHeight});
+
+//banner-wrapperのポジションレフトのデフォルトを設定
+var bannerWrapperDefaultLeft = $bannerWidth * $bannerOriginNumber;
+$bannerWrapper.css({'left': -(bannerWrapperDefaultLeft)})
+
+
+console.log('bannerCount ' + $bannerCount);
+console.log('bannerHeight ' + $bannerHeight);
+console.log('bannerWidth ' + $bannerWidth);
+console.log('bannerWrapperWidth ' + bannerWrapperWidth);
+console.log('bannerOriginNumber ' + $bannerOriginNumber);
+console.log('bannerWrapperDefaultLeft ' + -(bannerWrapperDefaultLeft));
+
 
 
 

@@ -1178,24 +1178,58 @@ body {
     left: 140px;
 }
 
-.banners {
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
-    margin-bottom: 50px;
+.banner-slider {
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
 }
 
-.banners span{
+.banner-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.banner {
+    margin:0 5px;
+}
+
+.banner-prev{
     font-size: 2rem;
     color: #1960a7;
     margin-top: 17px;
     margin-left: 10px;
     margin-right: 10px;
+    position: absolute;
+    top: 0;
+    left: -50px;
+    z-index: 2;
 }
 
-.banner {
+.banner-next{
+    font-size: 2rem;
+    color: #1960a7;
+    margin-top: 17px;
     margin-left: 10px;
+    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    right: -40px;
+    z-index: 2;
 }
+
+
+
+
+
+
+
+
+
 
 .page-upper {
     border-bottom: solid 3px #1960a7;
