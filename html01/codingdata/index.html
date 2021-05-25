@@ -375,9 +375,9 @@
                             <a href="#"><img src="images/bnr_partner07.jpg" alt=""></a>
                         </div>
                     </div>
-                    <span class="banner-prev"><</span>
-                    <span class="banner-next">></span>
                 </div>
+                <span class="banner-prev"><</span>
+                <span class="banner-next">></span>
             </section>
 
             <div class="page-upper">
@@ -487,329 +487,301 @@
     </footer>
 
 
-<script>
-//////////ついてくるサイドバー の処理//////////
-var $window = $(window);
-var $content = $('#content');
-var $sticky = $('#sticky');
-var $topContent = $content.offset().top;
-var startScroll = $topContent - 100;
-
-$window.on('scroll', function(){
-    if ($window.scrollTop() > startScroll) {
-            $sticky.removeClass('sticky-absolute');
-            $sticky.addClass('sticky-fixed')
-        
-    } else {
-            $sticky.removeClass('sticky-fixed');
-            $sticky.addClass('sticky-absolute')
-        }
-});
-
-//////////海外ツアースライドショー の処理//////////
-
-//class:abroad-feature-slide-wrapperを取得
-var $abroadFeatureSlideWrapper = $('.abroad-feature-slide-wrapper');
-//リストの●を表示用の数を習得
-var listNum = $('.abroad-feature-slide').length;
-//スライドを増やす
-$abroadFeatureSlideWrapper.find('.abroad-feature-slide').each(function () {
-    $(this).clone().appendTo('.abroad-feature-slide-wrapper');
-});
-
-
-//スライドの数
-var abroadFeatureSlideCount = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').length;
-//スライド１つの幅
-var abroadFeatureSlideSize = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').eq(0).width();
-//スライド１つの高さ
-var abroadFeatureSlideHeight = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').eq(0).height();
-//abroadFeatureSlideWrapper の Width,Height 設定
-var abroadFeatureMaxSize = abroadFeatureSlideCount * abroadFeatureSlideSize;
-$('.abroad-feature-slide-wrapper').css({'width': abroadFeatureMaxSize, 'height': abroadFeatureSlideHeight});
-$('.abroad-feature-slider').css({'height': abroadFeatureSlideHeight});
-
-var abroadFeatureDefaultLeft = -(abroadFeatureSlideSize * listNum);
-$abroadFeatureSlideWrapper.css({'left': abroadFeatureDefaultLeft});
-
-//画像の数だけ●ボタンを作成
-for (i = 0; i < listNum; i++){
-	$('.abroad-feature-pagination').append('<div class="abroad-feature-indicator" id = "__dot' + i + '"></div>');
-}
-
-//現在のスライドの順番
-var currentNum = 0;
-//最後のスライドの番号
-var lastNum = listNum - 1;
-//現在の左の位置
-var currentLeft = 0;
-
-//インジケーターの色を変える（初期値）
-$('#__dot' + currentNum ).addClass('current');
-
-//自動スライド発火
-var timer;
-function startTimer() {
-    timer = setInterval (function() {
-                currentNum = currentNum + 1;
-        
-                if (currentNum > lastNum) {
-                    //最初に飛ぶ
-                    currentNum = 0;
-                    $('#__dot' + currentNum ).addClass('current');
-                    $('.abroad-feature-indicator').not('#__dot' + currentNum).removeClass('current');
-                    
-                    var resetLeft = (abroadFeatureDefaultLeft + abroadFeatureSlideSize);
-                    $abroadFeatureSlideWrapper.css({'left': resetLeft + 'px'});
-                    
-                    //今のleftを取得しスライドする
-                    left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
-                    $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
-
-                } else {
-                    $('#__dot' + currentNum ).addClass('current');
-                    $('.abroad-feature-indicator').not('#__dot' + currentNum).removeClass('current');
-
-                    left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
-                    $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
-
-                }
-            }, 5000);
-}
-
-//自動スライド停止
-function stopTimer(){
-clearInterval(timer);
-}
-
-//スライドの処理
-startTimer();
-$(document).on('click', '.abroad-feature-indicator', function() {
-    //自動スライド停止
-    stopTimer();
-
-    //クリックされたインジケーターをIDで特定
-    var $dotId = $(this).attr('id');
-
-    //色の付け替え
-    $('.abroad-feature-indicator').not($dotId).removeClass('current');
-    $('#' + $dotId).addClass('current');
-
-    //現在番号の付け替え
-    currentNum = parseInt($dotId.replace('__dot', ''));
-
-    
-    //現在地の付け替え
-    left = ( abroadFeatureDefaultLeft - (abroadFeatureSlideSize * currentNum));
-    $abroadFeatureSlideWrapper.stop().animate({left: left + 'px'}, 500);
-    
-    //自動スライド発火
-    startTimer();
-});
-
-
-
-//////////中央スライドショー の処理//////////
-var $slideSet = $('.slide-set');
-//var left = parseInt($slideSet.css('left').replace('px', ''));
-
-//スライドを増やす
-$slideSet.find('.slide').each(function () {
-    $(this).clone().appendTo('.slide-set');
-});
-$slideSet.find('.slide').each(function () {
-    $(this).clone().appendTo('.slide-set');
-});
-
-//スライドの数
-var slideCount = $slideSet.find('.slide').length;
-//スライド１つの幅
-var slideSize = $slideSet.find('.slide').eq(0).width();
-//スライド１つの高さ
-var slideHeight = $slideSet.find('.slide').eq(0).height();
-//slideSet の Width,Height 設定
-var maxSize = slideCount * slideSize;
-$('.slide-set').css({'width': maxSize, 'height': slideHeight});
-$('.slider').css({'height': slideHeight});
-
-//leftのdefault値を取得（左から４つ目のスライド）
-var defaultLeft = -(slideSize * 3);
-$slideSet.css({'left': defaultLeft});
-//leftの最大値を取得
-var maxLeft = -(slideSize * 5);
-//現在のスライドの順番（初期値は1。右に行く毎に１増えて、３の次は１に戻る）
-var currentSlide = 1;
-
-$('.slide-prev').on('click', function() {
-    currentSlide = currentSlide - 1;
-
-    //もし現在値が左端だったら
-    if(currentSlide < 1) {
-        //３のよこにあるコピーした１に飛ぶ
-        jumpLeft = (maxLeft - slideSize);
-        $slideSet.css({'left': jumpLeft + 'px'});
-
-        //今のleftを取得しスライドする
-        left = (parseInt($('.slide-set').css('left').replace('px', '')) + slideSize);
-        $slideSet.animate({left: left + 'px'}, 500);
-        
-        //currentSlideに三番目の数値を再代入する
-        currentSlide = currentSlide + 3;
-
-    } else {
-        left = (parseInt($slideSet.css('left').replace('px', '')) + slideSize);
-        $slideSet.animate({left: left + 'px'}, 500);
-    }
-});
-
-$('.slide-next').on('click', function() {
-    currentSlide = currentSlide + 1;
-
-    //もし現在値が右端だったら
-    if(currentSlide > 3) {
-        //１に飛ぶ
-        jumpLeft = (defaultLeft + slideSize);
-        $slideSet.css({'left': jumpLeft + 'px'});
-
-        //今のleftを取得しスライドする
-        left = (parseInt($('.slide-set').css('left').replace('px', '')) - slideSize);
-        $slideSet.animate({left: left + 'px'}, 500);
-        
-        //currentSlideに三番目の数値を再代入する
-        currentSlide = currentSlide - 3;
-
-    } else {
-        left = (parseInt($slideSet.css('left').replace('px', '')) - slideSize);
-        $slideSet.animate({left: left + 'px'}, 500);
-    }
-});
-
-
-//////////バナースライドの処理//////////
-
-//banner-wrapperの取得
-var $bannerWrapper = $('.banner-wrapper');
-
-//bannerの増やす前の元々の数を取得する
-var $bannerOriginNumber = $bannerWrapper.find('.banner').length;
-//bannerの幅の取得
-var $bannerWidth = $bannerWrapper.find('.banner').eq(0).width();
-//bannerの高さの取得
-var $bannerHeight = $bannerWrapper.find('.banner').eq(0).height();
-
-//bannerを複製する
-$bannerWrapper.find('.banner').each(function () {
-    $(this).clone().appendTo('.banner-wrapper');
-});
-$bannerWrapper.find('.banner').each(function () {
-    $(this).clone().appendTo('.banner-wrapper');
-});
-
-//bannerの現在の数を取得し、その数でbanner-wrapperの幅や高さを指定する
-$bannerCount = $bannerWrapper.find('.banner').length;
-var bannerWrapperWidth = $bannerCount * $bannerWidth;
-$('.banner-wrapper').css({'width': bannerWrapperWidth, 'height': $bannerHeight});
-
-//banner-sliderの表示幅を設定
-var ShowBannerNumber = 4;
-var bannerSliderWidth = $bannerWidth * ShowBannerNumber;
-$('.banner-slider').css({'width': bannerSliderWidth, 'height': $bannerHeight});
-
-//banner-wrapperのポジションレフトのデフォルトを設定
-var bannerWrapperDefaultLeft = $bannerWidth * $bannerOriginNumber;
-$bannerWrapper.css({'left': -(bannerWrapperDefaultLeft)})
-
-
-console.log('bannerCount ' + $bannerCount);
-console.log('bannerHeight ' + $bannerHeight);
-console.log('bannerWidth ' + $bannerWidth);
-console.log('bannerWrapperWidth ' + bannerWrapperWidth);
-console.log('bannerOriginNumber ' + $bannerOriginNumber);
-console.log('bannerWrapperDefaultLeft ' + -(bannerWrapperDefaultLeft));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-
-<?php
-public function __invoke(ListUserParam $params): Collection
-    {
-        $user_reports = collect();
-
-        //有効な該当ユーザ取得
-        $users_builder = User::enabled();
-        if ($params->user_name) {
-            $users_builder->where('user_name', 'like', "%{$params->user_name}%");
-        }
-        $users = $users_builder->get();
-
-        //なかったら空コレクション返却
-        if ($users->count() === 0) {
-            return $user_reports;
-        }
-
-        //検索条件を実行した作業実績を取得
-        $work_builder = Work::query();
-        if ($params->period_from) {
-            $work_builder->where('work_date', '>=', $params->period_from);
-        }
-        if ($params->period_to) {
-            $work_builder->where('work_date', '<=', $params->period_to);
-        }
-
-        $works_collection = $work_builder->get();
-
-        //検索条件を実行したイベント付与トランを取得
-        $rewords_builder = Reward::with('event');
-        if ($params->period_from) {
-            $rewords_builder->where('reward_date', '>=', $params->period_from);
-        }
-        if ($params->period_to) {
-            $rewords_builder->where('reward_date', '<=', $params->period_to);
-        }
-        $rewords_builder->orderBy('reward_date', 'ASC');
-        
-        $rewords_collection = $rewords_builder->get();
-
-        foreach ($users as $user) {
-            $user_report = new UserMonthlyReport();
-
-            //必要情報をセット
-            $user_report->user = $user;
-            $user_report->period_from = new Carbon($params->period_from);
-            $user_report->period_to = new Carbon($params->period_to);
-            $user_report->all_works = $works_collection->where('user_id', $user->user_id);
-            $user_report->paged_works = $user_report->all_works->chunk(25);
-            $user_report->rewards = $rewords_collection->where('user_id', $user->user_id);
-            if ($user_report->rewards->isEmpty()) {
-                $user_report->total_page = count($user_report->paged_works);
-            } else {
-                $user_report->total_page = count($user_report->paged_works) + 1;
-            }
+    <script>
+    //////////ついてくるサイドバー の処理//////////
+    var $window = $(window);
+    var $content = $('#content');
+    var $sticky = $('#sticky');
+    var $topContent = $content.offset().top;
+    var startScroll = $topContent - 100;
+
+    $window.on('scroll', function(){
+        if ($window.scrollTop() > startScroll) {
+                $sticky.removeClass('sticky-absolute');
+                $sticky.addClass('sticky-fixed')
             
-            $user_reports->push($user_report);
-        }
+        } else {
+                $sticky.removeClass('sticky-fixed');
+                $sticky.addClass('sticky-absolute')
+            }
+    });
 
-        return $user_reports;
+    //////////海外ツアースライドショー の処理//////////
+
+    //class:abroad-feature-slide-wrapperを取得
+    var $abroadFeatureSlideWrapper = $('.abroad-feature-slide-wrapper');
+    //リストの●を表示用の数を習得
+    var listNum = $('.abroad-feature-slide').length;
+    //スライドを増やす
+    $abroadFeatureSlideWrapper.find('.abroad-feature-slide').each(function () {
+        $(this).clone().appendTo('.abroad-feature-slide-wrapper');
+    });
+
+
+    //スライドの数
+    var abroadFeatureSlideCount = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').length;
+    //スライド１つの幅
+    var abroadFeatureSlideSize = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').eq(0).width();
+    //スライド１つの高さ
+    var abroadFeatureSlideHeight = $abroadFeatureSlideWrapper.find('.abroad-feature-slide').eq(0).height();
+    //abroadFeatureSlideWrapper の Width,Height 設定
+    var abroadFeatureMaxSize = abroadFeatureSlideCount * abroadFeatureSlideSize;
+    $('.abroad-feature-slide-wrapper').css({'width': abroadFeatureMaxSize, 'height': abroadFeatureSlideHeight});
+    $('.abroad-feature-slider').css({'height': abroadFeatureSlideHeight});
+
+    var abroadFeatureDefaultLeft = -(abroadFeatureSlideSize * listNum);
+    $abroadFeatureSlideWrapper.css({'left': abroadFeatureDefaultLeft});
+
+    //画像の数だけ●ボタンを作成
+    for (i = 0; i < listNum; i++){
+        $('.abroad-feature-pagination').append('<div class="abroad-feature-indicator" id = "__dot' + i + '"></div>');
     }
 
-?>
+    //現在のスライドの順番
+    var currentNum = 0;
+    //最後のスライドの番号
+    var lastNum = listNum - 1;
+    //現在の左の位置
+    var currentLeft = 0;
+
+    //インジケーターの色を変える（初期値）
+    $('#__dot' + currentNum ).addClass('current');
+
+    //自動スライド発火
+    var timer;
+    function startTimer() {
+        timer = setInterval (function() {
+                    currentNum = currentNum + 1;
+            
+                    if (currentNum > lastNum) {
+                        //最初に飛ぶ
+                        currentNum = 0;
+                        $('#__dot' + currentNum ).addClass('current');
+                        $('.abroad-feature-indicator').not('#__dot' + currentNum).removeClass('current');
+                        
+                        var resetLeft = (abroadFeatureDefaultLeft + abroadFeatureSlideSize);
+                        $abroadFeatureSlideWrapper.css({'left': resetLeft + 'px'});
+                        
+                        //今のleftを取得しスライドする
+                        left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
+                        $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
+
+                    } else {
+                        $('#__dot' + currentNum ).addClass('current');
+                        $('.abroad-feature-indicator').not('#__dot' + currentNum).removeClass('current');
+
+                        left = (parseInt($('.abroad-feature-slide-wrapper').css('left').replace('px', '')) - abroadFeatureSlideSize);
+                        $abroadFeatureSlideWrapper.animate({left: left + 'px'}, 500);
+
+                    }
+                }, 5000);
+    }
+
+    //自動スライド停止
+    function stopTimer(){
+    clearInterval(timer);
+    }
+
+    //スライドの処理
+    startTimer();
+    $(document).on('click', '.abroad-feature-indicator', function() {
+        //自動スライド停止
+        stopTimer();
+
+        //クリックされたインジケーターをIDで特定
+        var $dotId = $(this).attr('id');
+
+        //色の付け替え
+        $('.abroad-feature-indicator').not($dotId).removeClass('current');
+        $('#' + $dotId).addClass('current');
+
+        //現在番号の付け替え
+        currentNum = parseInt($dotId.replace('__dot', ''));
+
+        
+        //現在地の付け替え
+        left = ( abroadFeatureDefaultLeft - (abroadFeatureSlideSize * currentNum));
+        $abroadFeatureSlideWrapper.stop().animate({left: left + 'px'}, 500);
+        
+        //自動スライド発火
+        startTimer();
+    });
 
 
+
+    //////////中央スライドショー の処理//////////
+    var $slideSet = $('.slide-set');
+    //var left = parseInt($slideSet.css('left').replace('px', ''));
+
+    //スライドを増やす
+    $slideSet.find('.slide').each(function () {
+        $(this).clone().appendTo('.slide-set');
+    });
+    $slideSet.find('.slide').each(function () {
+        $(this).clone().appendTo('.slide-set');
+    });
+
+    //スライドの数
+    var slideCount = $slideSet.find('.slide').length;
+    //スライド１つの幅
+    var slideSize = $slideSet.find('.slide').eq(0).width();
+    //スライド１つの高さ
+    var slideHeight = $slideSet.find('.slide').eq(0).height();
+    //slideSet の Width,Height 設定
+    var maxSize = slideCount * slideSize;
+    $('.slide-set').css({'width': maxSize, 'height': slideHeight});
+    $('.slider').css({'height': slideHeight});
+
+    //leftのdefault値を取得（左から４つ目のスライド）
+    var defaultLeft = -(slideSize * 3);
+    $slideSet.css({'left': defaultLeft});
+    //leftの最大値を取得
+    var maxLeft = -(slideSize * 5);
+    //現在のスライドの順番（初期値は1。右に行く毎に１増えて、３の次は１に戻る）
+    var currentSlide = 1;
+
+    $('.slide-prev').on('click', function() {
+        currentSlide = currentSlide - 1;
+
+        //もし現在値が左端だったら
+        if(currentSlide < 1) {
+            //３のよこにあるコピーした１に飛ぶ
+            jumpLeft = (maxLeft - slideSize);
+            $slideSet.css({'left': jumpLeft + 'px'});
+
+            //今のleftを取得しスライドする
+            left = (parseInt($('.slide-set').css('left').replace('px', '')) + slideSize);
+            $slideSet.animate({left: left + 'px'}, 500);
+            
+            //currentSlideに三番目の数値を再代入する
+            currentSlide = currentSlide + 3;
+
+        } else {
+            left = (parseInt($slideSet.css('left').replace('px', '')) + slideSize);
+            $slideSet.animate({left: left + 'px'}, 500);
+        }
+    });
+
+    $('.slide-next').on('click', function() {
+        currentSlide = currentSlide + 1;
+
+        //もし現在値が右端だったら
+        if(currentSlide > 3) {
+            //１に飛ぶ
+            jumpLeft = (defaultLeft + slideSize);
+            $slideSet.css({'left': jumpLeft + 'px'});
+
+            //今のleftを取得しスライドする
+            left = (parseInt($('.slide-set').css('left').replace('px', '')) - slideSize);
+            $slideSet.animate({left: left + 'px'}, 500);
+            
+            //currentSlideに三番目の数値を再代入する
+            currentSlide = currentSlide - 3;
+
+        } else {
+            left = (parseInt($slideSet.css('left').replace('px', '')) - slideSize);
+            $slideSet.animate({left: left + 'px'}, 500);
+        }
+    });
+
+
+    //////////バナースライドの処理//////////
+
+    //banner-wrapperの取得
+    var $bannerWrapper = $('.banner-wrapper');
+
+    //bannerの増やす前の元々の数を取得する
+    var $bannerOriginNumber = $bannerWrapper.find('.banner').length;
+    //bannerの幅の取得
+    var $bannerWidth = $bannerWrapper.find('.banner').eq(0).width();
+    //bannerの高さの取得
+    var $bannerHeight = $bannerWrapper.find('.banner').eq(0).height();
+
+    //bannerを複製する
+    $bannerWrapper.find('.banner').each(function () {
+        $(this).clone().appendTo('.banner-wrapper');
+    });
+    $bannerWrapper.find('.banner').each(function () {
+        $(this).clone().appendTo('.banner-wrapper');
+    });
+
+    //bannerの現在の数を取得し、その数でbanner-wrapperの幅や高さを指定する
+    $bannerCount = $bannerWrapper.find('.banner').length;
+    var bannerWrapperWidth = $bannerCount * $bannerWidth;
+    $('.banner-wrapper').css({'width': bannerWrapperWidth, 'height': $bannerHeight});
+
+    //banner-sliderの表示幅を設定
+    var showBannerNumber = 4;
+    var bannerSliderWidth = $bannerWidth * showBannerNumber;
+    $('.banner-slider').css({'width': bannerSliderWidth, 'height': $bannerHeight});
+
+    //banner-wrapperのポジションレフトのデフォルトを設定
+    var bannerWrapperDefaultLeft = $bannerWidth * $bannerOriginNumber;
+    $bannerWrapper.css({'left': -(bannerWrapperDefaultLeft)})
+
+    //banner-wrapperの右端のサイズを設定
+    var bannerWrapperMaxLeft = -($bannerWidth * $bannerOriginNumber);
+
+    //現在のバナーの順番の設定
+    var currentBanner = 0;
+    //バナーの最大順番設定
+    var maxCurrentBanner = $bannerOriginNumber - showBannerNumber;
+    
+    //左をクリッックしたら左に動くようにする
+    $(document).on('click', '.banner-prev', function() {
+        currentBanner = currentBanner - 1;
+
+        if (currentBanner < 0) {
+            var jumpBannerLeft = bannerWrapperMaxLeft;
+            $bannerWrapper.css({'left': jumpBannerLeft + 'px'})
+
+            var bannerLeft = (parseInt($('.banner-wrapper').css('left').replace('px', '')) + $bannerWidth);
+            $bannerWrapper.animate({left: bannerLeft + 'px'}, 500);
+
+            currentBanner = 6;         
+        } else { 
+            var bannerLeft = (parseInt($('.banner-wrapper').css('left').replace('px', '')) + $bannerWidth);
+            $bannerWrapper.animate({left: bannerLeft + 'px'}, 500);
+    
+        }
+    });
+
+    $(document).on('click', '.banner-next', function() {
+        currentBanner = currentBanner + 1;
+
+        if (currentBanner > $bannerOriginNumber) {
+            $bannerWrapper.css({'left': -(bannerWrapperDefaultLeft) + 'px'});
+
+            var bannerLeft = (parseInt($('.banner-wrapper').css('left').replace('px', '')) - $bannerWidth);
+            $bannerWrapper.animate({left: bannerLeft + 'px'}, 500);
+
+            currentBanner = 1;
+            
+        } else { 
+            var bannerLeft = (parseInt($('.banner-wrapper').css('left').replace('px', '')) - $bannerWidth);
+            $bannerWrapper.animate({left: bannerLeft + 'px'}, 500);
+
+            console.log('right ' + currentBanner);
+            
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
 
 </body>
 </html>

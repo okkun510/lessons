@@ -1198,6 +1198,10 @@ body {
     margin:0 5px;
 }
 
+.link-banners {
+    position: relative;
+}
+
 .banner-prev{
     font-size: 2rem;
     color: #1960a7;
@@ -1205,8 +1209,8 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     position: absolute;
-    top: 0;
-    left: -50px;
+    top: -5px;
+    left: 280px;
     z-index: 2;
 }
 
@@ -1217,8 +1221,8 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     position: absolute;
-    top: 0;
-    right: -40px;
+    top: -5px;
+    right: 280px;
     z-index: 2;
 }
 
